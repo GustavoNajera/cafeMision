@@ -1,1 +1,1 @@
-<?php include './vistas/cliente/indexCliente.php'; ?>
+<?php  header('Location: ./vistasAdm/administracion.php'); ?>
