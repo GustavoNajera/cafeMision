@@ -1,12 +1,8 @@
 <?php
 include '../negocios/EmpresaNegocio.php';
-$empresaNegocio = new EmpresaNegocio();
-$empresa = $empresaNegocio->retornarInformacionEmpresa();
-//var_dump($empresa);
-//exit;
+$procesoProduccionNegocio = new EmpresaNegocio();
+$empresa = $procesoProduccionNegocio->retornarInformacionEmpresa();
 ?>
-
-
 
 <div class="row"> 
     <form action="../negocios/actualizarEmpresa.php" method="post" class="form-horizontal">
@@ -20,7 +16,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group" style="">
                     <label class="col-md-1 control-label" for="historia">Historia</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="historia" name="historia" rows="6"><?php echo $empresa->historia; ?></textarea>
+                        <textarea class="form-control" id="historia" name="historia" rows="6" required><?php echo $empresa->historia; ?></textarea>
                     </div>
                 </div>
 
@@ -28,7 +24,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group">
                     <label class="col-md-1 control-label" for="responsabilidad">Responsabilidad</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="responsabilidad" name="responsabilidad" rows="6"><?php echo $empresa->responsabilidad; ?></textarea>
+                        <textarea class="form-control" id="responsabilidad" name="responsabilidad" rows="6" required><?php echo $empresa->responsabilidad; ?></textarea>
                     </div>
                 </div>
 
@@ -36,7 +32,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group">
                     <label class="col-md-1 control-label" for="produccion">Produccion</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="produccion" name="produccion" rows="6"><?php echo $empresa->produccion; ?></textarea>
+                        <textarea class="form-control" id="produccion" name="produccion" rows="6" required><?php echo $empresa->produccion; ?></textarea>
                     </div>
                 </div>
 
@@ -44,7 +40,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group">
                     <label class="col-md-1 control-label" for="mision">Misión</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="mision" name="mision" rows="5"><?php echo $empresa->mision; ?></textarea>
+                        <textarea class="form-control" id="mision" name="mision" rows="5" required><?php echo $empresa->mision; ?></textarea>
                     </div>
                 </div>
 
@@ -52,7 +48,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group">
                     <label class="col-md-1 control-label" for="vision">Visión</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="vision" name="vision" rows="5"><?php echo $empresa->vision; ?></textarea>
+                        <textarea class="form-control" id="vision" name="vision" rows="5" required><?php echo $empresa->vision; ?></textarea>
                     </div>
                 </div>
 
@@ -70,7 +66,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group" style="">
                     <label class="col-md-1 control-label" for="historia">Historia</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="historia" name="historiain" rows="6"><?php echo $empresa->historiaIn; ?></textarea>
+                        <textarea class="form-control" id="historia" name="historiain" rows="6" required><?php echo $empresa->historiaIn; ?></textarea>
                     </div>
                 </div>
 
@@ -78,7 +74,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group">
                     <label class="col-md-1 control-label" for="responsabilidad">Responsabilidad</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="responsabilidad" name="responsabilidadin" rows="6"><?php echo $empresa->responsabilidadIn; ?></textarea>
+                        <textarea class="form-control" id="responsabilidad" name="responsabilidadin" rows="6" required><?php echo $empresa->responsabilidadIn; ?></textarea>
                     </div>
                 </div>
 
@@ -86,7 +82,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group">
                     <label class="col-md-1 control-label" for="produccion">Produccion</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="produccion" name="produccionin" rows="6"><?php echo $empresa->produccionIn; ?></textarea>
+                        <textarea class="form-control" id="produccion" name="produccionin" rows="6" required ><?php echo $empresa->produccionIn; ?></textarea>
                     </div>
                 </div>
 
@@ -94,7 +90,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group">
                     <label class="col-md-1 control-label" for="mision">Misión</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="mision" name="misionin" rows="5"><?php echo $empresa->misionIn; ?></textarea>
+                        <textarea class="form-control" id="mision" name="misionin" rows="5" required ><?php echo $empresa->misionIn; ?></textarea>
                     </div>
                 </div>
 
@@ -102,7 +98,7 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
                 <div class="form-group">
                     <label class="col-md-1 control-label" for="vision">Visión</label>
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="vision" name="visionin" rows="5"><?php echo $empresa->visionIn; ?></textarea>
+                        <textarea  class="form-control" id="vision" name="visionin" rows="5" required><?php echo $empresa->visionIn; ?></textarea>
                     </div>
                 </div>
 
@@ -159,8 +155,12 @@ $empresa = $empresaNegocio->retornarInformacionEmpresa();
         if (result === "actualizado") {
             $('#mensaje').html('La información de la empresa fue actualizada con éxito.');
             $('#exampleModal').modal('show');
-        } else if (result === "no actualizado") {
+        } else if (result === "noactualizado") {
             $('#mensaje').html('La información de la empresa no fue actualizada.');
+            $('#exampleModal').modal('show');
+        }
+         else if (result === "vacios") {
+            $('#mensaje').html('La información de la empresa no fue actualizada porque hay campos vacios.');
             $('#exampleModal').modal('show');
         }
     });

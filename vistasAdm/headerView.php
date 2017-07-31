@@ -10,10 +10,18 @@
             <li>
                 <a href="administracion.php?seccion=empresa">EMPRESA</a>
             </li>
-            <li>
-                <a href="#">ENLACE</a>
+            <!--            <li>
+                            <a href="administracion.php?seccion=proceso">ETAPAS PRODUCCIÓN</a>
+                        </li>-->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">ETAPAS PRODUCCIÓN
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="administracion.php?seccion=ingresarproceso">INGRESAR ETAPA</a></li>
+                    <li><a href="administracion.php?seccion=actualizarproceso">ACTUALIZAR ETAPA</a></li>
+                    <li><a href="#">ELIMINAR ETAPA</a></li> 
+                </ul>
             </li>
-
             <li>
                 <a href="#">ENLACE</a>
             </li>

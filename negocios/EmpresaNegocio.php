@@ -1,11 +1,11 @@
 <?php
 
 
-include '../datos/EmpresaData.php';
+include '../datos/EmpresaDatos.php';
 
 class EmpresaNegocio {
 
-    public $empresaData;
+    public $procesoData;
 
     //construtor
     public function EmpresaNegocio() {

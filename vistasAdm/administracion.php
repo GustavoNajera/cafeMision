@@ -18,6 +18,12 @@
                         if ($_GET['seccion'] == 'empresa') {
                             include './empresaView.php';
                         }
+                        else if ($_GET['seccion'] == 'ingresarproceso') {
+                            include './ingresarProcesoView.php';
+                        }
+                        else if ($_GET['seccion'] == 'actualizarproceso') {
+                            include './actualizarProcesoView.php';
+                        }
                     } else {
                         include './empresaView.php';
                     }
