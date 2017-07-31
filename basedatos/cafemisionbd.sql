@@ -27,6 +27,7 @@ create table if not exists cf_proceso_produccion (
    cf_nombre_in longText,
    cf_descripcion_in longText  
 )
+
 INSERT INTO `cf_proceso_produccion` (`cf_id`, `cf_nombre`, `cf_descripcion`, `cf_nombre_in`, `cf_descripcion_in`) VALUES
 (1, 'nombre proceso 1 actualizado', 'descripcion proceso 1 actualizado', 'proceso 1 ingles', 'descripcion proceso 1 ingles'),
 (2, 'proceso 2', 'decripcion proceso 2', 'descripcion proceso 2 ingles', 'descripcion proceso 2 ingles');
@@ -41,6 +42,18 @@ CREATE PROCEDURE eliminarEtapaProceso(IN id int) BEGIN delete from  cf_proceso_p
 CREATE PROCEDURE insertarEtapaProceso(IN nombre longText,IN descripcion longText,IN nombre_in longText,IN descripcion_in longText) 
 BEGIN insert into cf_proceso_produccion VALUES (0,nombre,descripcion,nombre_in,descripcion_in); END $$
 DELIMITER $$
+
+
+create table if not exists cf_imagenes_produccion (
+   cf_id int auto_increment primary key,
+   cf_id_proceso int,
+   cf_nombre longText,
+   cf_ruta longText,
+   FOREIGN KEY (cf_id_proceso) REFERENCES cf_proceso_produccion(cf_id)
+)
+
+
+
 create table if not exists cf_redes_sociales (
    cf_id int auto_increment primary key,
    cf_nombre longText,
