@@ -30,32 +30,32 @@
                 <!-- Textarea -->
                 <div class="form-group">
                     <div class="col-md-12">                     
-                        <textarea class="form-control" id="descripcionin" name="descripcionin" rows="5" placeholder="Digite la descripción de la etapa en inglés" required></textarea>
+                        <textarea class="form-control" id="descripcionin" name="descripcionin" rows="5" placeholder="Digite la descripción de la etapa en inglés" ></textarea>
                     </div>
                 </div>
 
 
-<!--                 Textarea 
+                <!--Textarea--> 
                 <div class="form-group" >
                     <label class="col-md-7 control-label" for="responsabilidad">Seleccione imagen 1</label>
                     <div class="col-md-12">                     
-                        <input type='file' class="form-control" id="nombre" name="nombre" placeholder="Digite el nombre de la etapa" required>
+                        <input type='file' class="form-control" id="imagen1" name="imagen1" placeholder="Digite el nombre de la etapa" accept="image/x-png,image/jpeg" required >
                     </div>
                 </div>
-                 Textarea 
+                <!--Textarea--> 
                 <div class="form-group">
                     <label class="col-md-7 control-label" for="responsabilidad">Seleccione imagen 2</label>
                     <div class="col-md-12">                     
-                        <input type='file' class="form-control" id="nombre" name="nombre" placeholder="Digite el nombre de la etapa" required>
+                        <input type='file' class="form-control" id="imagen2" name="imagen2" placeholder="Digite el nombre de la etapa" accept="image/x-png,image/jpeg" required>
                     </div>
                 </div>
-                 Textarea 
+                <!--Textarea--> 
                 <div class="form-group" >
                     <label class="col-md-7 control-label" for="responsabilidad">Seleccione imagen 3</label>
                     <div class="col-md-12">                     
-                        <input  type='file' class="form-control" id="nombre" name="nombre" placeholder="Digite el nombre de la etapa" required>
+                        <input  type='file' class="form-control" id="imagen3" name="imagen3" placeholder="Digite el nombre de la etapa" accept="image/x-png,image/jpeg" required>
                     </div>
-                </div>-->
+                </div>
             </fieldset>
             <div class="col-md-12">
                 <!-- Button (Double) -->
@@ -110,7 +110,10 @@
             $('#mensaje').html('El proceso de produccion no fue ingresado con éxito.');
             $('#exampleModal').modal('show');
         } else if (result === "vacios") {
-            $('#mensaje').html('El proceso de produccion no fue ingresado con éxito. porque hay campos vacios.');
+            $('#mensaje').html('El proceso de produccion no fue ingresado con éxito porque hay campos vacios.');
+            $('#exampleModal').modal('show');
+        } else if (result === "yaexiste") {
+            $('#mensaje').html('El proceso de produccion no fue ingresado con éxito porque el nombre de alguna imagen se repite.');
             $('#exampleModal').modal('show');
         }
     });

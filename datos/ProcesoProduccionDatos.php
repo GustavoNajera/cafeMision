@@ -17,14 +17,15 @@ class ProcesoProduccionDatos extends Conexion {
 
     //actualizar empresa ingles
     public function ingresarProceso($nombre, $descripcion, $nombrein, $descripcionin) {
-        print_r($nombre);
-        
+
         $this->exeQuery("call insertarEtapaProceso('" . $nombre . "','" . $descripcion . "','" . $nombrein . "','" . $descripcionin . "')");
     }
 
     //retornar id
-    public function retornarUltimod($historia, $produccion, $vision, $mision, $responsabilidad) {
-        $this->exeQuery("select max(cf_id) from cf_proceso_produccion");
+    public function retornarUltimoId() {
+        $id = $this->exeQuery("select max(cf_id) as id from cf_proceso_produccion");
+        $row = mysqli_fetch_array($id);
+        return $row[0];
     }
 
 }

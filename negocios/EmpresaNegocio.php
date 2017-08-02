@@ -9,7 +9,7 @@ class EmpresaNegocio {
 
     //construtor
     public function EmpresaNegocio() {
-        $this->empresaData = new EmpresaData();
+        $this->empresaData = new EmpresaDatos();
     }
 
     //retorna los datos de la empresa, en ambos idiomas

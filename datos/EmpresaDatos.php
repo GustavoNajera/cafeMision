@@ -3,7 +3,7 @@
 require_once '../conexion/Conexion.php';
 include_once '../dominio/Empresa.php';
 
-class EmpresaData extends Conexion {
+class EmpresaDatos extends Conexion {
 
     //retorna los datos de la empresa, en ambos idiomas
     public function retornarInformacionEmpresa() {

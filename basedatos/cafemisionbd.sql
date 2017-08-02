@@ -51,7 +51,10 @@ create table if not exists cf_imagenes_produccion (
    cf_ruta longText,
    FOREIGN KEY (cf_id_proceso) REFERENCES cf_proceso_produccion(cf_id)
 )
-
+DELIMITER $$
+CREATE PROCEDURE insertarImagenesProceso(IN idproceso int,IN nombre longText,IN ruta longText) 
+BEGIN insert into cf_imagenes_produccion VALUES (0,idproceso,nombre,ruta); END $$
+DELIMITER $$
 
 
 create table if not exists cf_redes_sociales (
