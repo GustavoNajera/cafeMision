@@ -24,10 +24,10 @@ class ProcesoProduccionNegocio {
     }
 
 //
-//    //retorna los datos de la empresa, en ambos ingles
-//    public function retornarInformacionEmpresaIngles() {
-//        return $this->procesoData->retornarInformacionEmpresaIngles();
-//    }
+    //retorna todas las etapas del proceso
+    public function retornarEtapasProceso() {
+        return $this->procesoData->retornarEtapasProceso();
+    }
 //
 //    //actualizar empresa ingles
 //    public function actualizarEmpresaIngles($historia, $produccion, $vision, $mision, $responsabilidad) {

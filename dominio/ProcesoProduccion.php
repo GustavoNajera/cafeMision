@@ -1,6 +1,6 @@
 <?php
 
-class Empresa {
+class ProcesoProduccion {
 
     //atributos
     public $id;
@@ -8,10 +8,8 @@ class Empresa {
     public $descripcion;
     public $nombrein;
     public $descripcionin;
-    public $responsabilidadIn;
-
     //constructor
-    function Empresa($id_, $nombre_, $descripcion_, $nombrein_, $descripcionin_) {
+    function ProcesoProduccion($id_, $nombre_, $descripcion_, $nombrein_, $descripcionin_) {
         $this->id = $id_;
         $this->nombre = $nombre_;
         $this->descripcion = $descripcion_;

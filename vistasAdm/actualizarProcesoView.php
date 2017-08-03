@@ -1,8 +1,10 @@
 <?php
-//include '../negocios/EmpresaNegocio.php';
-//$empresaNegocio = new EmpresaNegocio();
-//$empresa = $empresaNegocio->retornarInformacionEmpresa();
+include '../negocios/EmpresaNegocio.php';
+$empresaNegocio = new ProcesoProduccionNegocio();
+$empresa = $empresaNegocio->retornarInformacionEmpresa();
 ?>
+
+
 <div class="row"> 
     <div class="col-md-6">
         <form action="../negocios/actualizarEmpresa.php" method="post" class="form-horizontal">
