@@ -18,8 +18,8 @@
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="administracion.php?seccion=ingresarproceso">INGRESAR ETAPA</a></li>
-                    <li><a href="administracion.php?seccion=actualizarproceso">ACTUALIZAR ETAPA</a></li>
-                    <li><a href="#">ELIMINAR ETAPA</a></li> 
+                    <li><a href="administracion.php?seccion=actualizarproceso">EDITAR ETAPA</a></li>
+                    <!--<li><a href="#">ELIMINAR ETAPA</a></li>--> 
                 </ul>
             </li>
             <li>

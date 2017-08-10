@@ -112,6 +112,8 @@ create table if not exists cf_paginas_amigas(
    cf_nombre longText,
    cf_enlace longText
 )
+
+
 create table if not exists cf_contacto (
    cf_id int auto_increment primary key,
    cf_telefono int,

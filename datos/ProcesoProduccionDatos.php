@@ -51,11 +51,11 @@ class ProcesoProduccionDatos extends Conexion {
 
 }
 
-//test
-$id = new ProcesoProduccionDatos();
-$resultado = $id->retornarEtapasProcesoIngles();
-foreach ($resultado as $value) {
-    echo $value->nombrein . "</br>";
-}
-exit;
-var_dump($resultado);
+////test
+//$id = new ProcesoProduccionDatos();
+//$resultado = $id->retornarEtapasProcesoIngles();
+//foreach ($resultado as $value) {
+//    echo $value->nombrein . "</br>";
+//}
+//exit;
+//var_dump($resultado);
