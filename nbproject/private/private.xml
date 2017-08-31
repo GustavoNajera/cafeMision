@@ -3,16 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/cafeMision/domain/Product.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/detalle.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/data/ProductData.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/data/Connection.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/data/TextPageData.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/business/ProductBusiness.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/business/TextPageBusiness.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/products.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/data/OrganizationData.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/about.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMisionTopo/cafeMision/views/cliente/session.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMisionTopo/cafeMision/index.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMisionTopo/cafeMision/business/SessionBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMisionTopo/cafeMision/views/cliente/about.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMisionTopo/cafeMision/data/UserData.php</file>
         </group>
     </open-files>
 </project-private>

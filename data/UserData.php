@@ -19,6 +19,17 @@ class UserData {
         
         return new User($userTem["iduser"], $userTem["email"], $userTem["idcard"], $userTem["image"],
                     $userTem["lastname"], $userTem["name"], $userTem["password"], $userTem["user"]);
+    }  
+    
+    /*
+     * retorna el usuario filtrado por username/email y la contraseña
+     */
+    public function getUserSession($user, $password) {
+        $condition = "(user = '" . $user . "' || email = '" . $user . "') && password = '" . $password . "'";
+        $userTem = $this->connection->findOne("*", "user",$condition);        
+        
+        return new User($userTem["iduser"], $userTem["email"], $userTem["idcard"], $userTem["image"],
+                    $userTem["lastname"], $userTem["name"], $userTem["password"], $userTem["user"]);
     }    
     
 }

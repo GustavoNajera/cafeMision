@@ -22,7 +22,11 @@
                 
                 <li><a href="./contact">Contact Us</a></li>
                 
-                <li class="active"><a href="./session">Login</a></li>
+                <li class="active"><a href="./session">Login</a>
+                    <ul class="rd-navbar-dropdown">
+                        <li><a href="./SessionLogOut">LogOut</a></li>
+                    </ul>
+                </li>
               </ul>
             </div>
           </div>

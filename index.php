@@ -1,5 +1,6 @@
 <?php
-        
+include_once './Business/SessionBusiness.php';
+
 $ruta = explode("/", $_SERVER["REQUEST_URI"])[2];
 
 //Se configura la ruta de las vistas
@@ -16,8 +17,10 @@ $routes = [
     "session" => "cliente/session.php",
     "gallery" => "cliente/gallery.php",
     "products" => "cliente/products.php",
+    "admin" => "admin/index.php",
+    "SessionLogIn" => "../Business/ActionLogIn.php",
+    "SessionLogOut" => "../Business/ActionLogOut.php"
 ];
-
 $filtrado = "";
 if(count(explode("-",$ruta)) > 1){
     $filtrado = explode("-",$ruta)[1];
