@@ -40,6 +40,14 @@
             return mysqli_query($this->link, $query);
        }
        
+       /*
+        * Actualiza registros de una tabla
+        */
+       public function update($attributes, $table,$condition){
+             $sql = "UPDATE ".$table." SET " . $attributes . " WHERE " . $condition;
+            return mysqli_query($this->link, $sql);
+       }
+       
 
     }
 

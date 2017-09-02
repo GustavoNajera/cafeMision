@@ -34,5 +34,17 @@ class ProductData {
         $productTem = $this->connection->findOne("*", "product", $condition);
         return new Product($productTem["idproduct"], $productTem["description"], $productTem["image"],
                 $productTem["language"], $productTem["nameproduct"]);
-    } 
+    }
+    
+    /*
+     * Actualiza la información de la empresa
+     */
+    public function updateProductData($product){
+        $attributes = "description = '".$product->description . "', image = '" . $product->image .
+                "', nameproduct = '" . $product->nameproduct . "'";
+        
+        $condition = "idproduct = " . $product->idproduct . " && language = '" . $product->language . "'"; 
+        $table = "product";
+        $this->connection->update($attributes, $table, $condition);
+    }
 }

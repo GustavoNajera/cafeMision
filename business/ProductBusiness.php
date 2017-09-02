@@ -13,4 +13,14 @@ class ProductBusiness extends ProductData{
     public function getOneproductBusiness($product) {
         return $this->getOneProductData("ingles",$product);
     }
+    
+    //retornalos productos en el lenguaje elegido
+    public function getAllproductLenBusiness($language) {
+        return $this->getAllproductData($language);
+    }
+    
+    //Actualiza el producto recibido
+    public function updateProductBusiness($product) {
+        return $this->updateProductData($product);
+    }
 }

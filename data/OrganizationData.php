@@ -26,8 +26,18 @@ class OrganizationData {
     }
     
     /*
-     * retorna todos los registros
+     * Actualiza la información de la empresa
      */
+    public function updateOrganizationData($organization){
+        $attributes = "mission = '".$organization->mission . "', vission = '" . $organization->vission .
+                "', production = '" . $organization->production . "', socialresponsability = '" . $organization->socialresponsability .
+                "', history = '" . $organization->history . "', facebook = '" . $organization->facebook .
+                "', email = '" . $organization->email . "'";
+        
+        $condition = "idorganization = " . $organization->idorganization . " && language = '" . $organization->language . "'"; 
+        $table = "organization";
+        $this->connection->update($attributes, $table, $condition);
+    }
     
     
 }
