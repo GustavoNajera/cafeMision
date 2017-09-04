@@ -97,7 +97,7 @@
                         
                         <div class="divider divider-small divider-light block-centered"></div>
                         <ul class="inline-list inline-list-md">
-                          <li><a href="#" class="icon icon-xs link-gray-light fa-facebook"></a></li>
+                          <h4>Universidad de Costa Rica - Trabajo Comunal 2017 </h4>
                         </ul>
                       </div>
                     </div>

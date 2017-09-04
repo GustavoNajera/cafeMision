@@ -5,19 +5,15 @@
     <?php
     
         /*Se verifica que venga especificado el lenguaje, en caso contrario se usa por defecto ingles*/
-        if($filtrado == "") header("Location: ./admin?filtrado=ingles");
-        include_once './business/CommentBusiness.php';
+        if($filtrado == "") header("Location: ./adminTextPage?filtrado=ingles");
+        
         include_once './business/TextPageBusiness.php';
         
-        //Se obtienen los comentarios
-        $listComment = (new CommentBusiness())->getAllCommentBusiness();
-        
-        //Se obtienen los textos en el lenguaje elegido
-        $text = (new TextPageBusiness())->getTextByPageBusiness("comment");
+        //Se obtienen los textos en el lenguaje especificado
+        $listTextPage = (new TextPageBusiness())->getTextByLanguageBusiness($filtrado);
         
         //Se obtiene la ruta de las imágenes
         $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
-        $pathUser = $pathTem["imgUser"];
         $pathTemplate = $pathTem["imgTemplate"];
     ?>
     <title>Principal Admin</title>
@@ -42,7 +38,7 @@
                         <div class="unit unit-spacimg-md unit-xs-horizontal unit-align-center unit-middle">
                             <p class="large">Mostrar elementos en: </p>
                             
-                           <!-- Se especifica el lenguaje que desea administrar. -->
+                            <!-- Se especifica el lenguaje que desea administrar. -->
                             <?php if($filtrado != "ingles"){ ?>
                             <div style="margin: 10px;" class="unit-body"><a href="<?=$ruta?>?filtrado=ingles" class="btn btn-sm btn-circle">Ingles</a></div>
                                 <div class="unit-body"><a href="<?=$ruta?>?filtrado=spanish" class="btn btn-sm btn-circle btn-primary">Español</a></div>
@@ -55,21 +51,71 @@
                     </div>
                   </div>
                 </div>
-               
-                <section class="section-xl bg-periglacial-blue text-center">
-              <div class="shell">
-                <div class="range range-sm-center range-75">
-                  <div class="cell-xs-12">
-                    <h2 class="big">Bienvenido a la zona administrativa</h2>
-                    <div class="p text-width-medium">
-                      <h3 class="big">Para realizar una actualización en el contenido del sistema debe seleccionar 
-                      en el menú (esquina superior derecha) la sección a actualizar.</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>  
                   
+                
+                  
+                  <section class="section-xl bg-periglacial-blue text-center">
+                    <div class="shell">
+                      <div class="range range-sm-center range-75">
+                        <div class="cell-xs-12">
+                          <h2>Texto del Sistema</h2>
+                          <div class="p text-width-medium">
+                            <h3>Asegurese de no dejar ningún campo sin texto.</h3>
+                          </div>
+                        </div>
+                        <div class="cell-lg-10">
+                          
+                        <?php foreach ($listTextPage as $textPage){?>
+                           
+                            <blockquote class="quote-review">
+                                 <form  enctype="multipart/form-data" method="POST" action="./actionTextPage?filtrado=<?=$filtrado?>&&action=update">
+                                    <!-- Input para almacenar información no visible al usuario -->
+                                    <input hidden type="text" name="idtextpage" value="<?=$textPage->idtextpage?>">
+                                    <input hidden type="text" name="language" value="<?=$textPage->language?>">
+                                    <input hidden type="text" name="keytext" value="<?=$textPage->keytext?>">
+                                    
+                                    <div class="quote-fullwidth-body">
+                                        <div class="range range-sm-bottom range-15">
+                                        <div class="cell-sm-12">
+                                            <div class="form-group">
+                                                <label class="form-label-outside">Texto Clave *</label>
+                                                <input disabled type="text" name="keytext" required class="form-control" value="<?=$textPage->keytext?>">
+                                            </div>
+                                        </div>
+                                        
+                                            
+                                        <div class="cell-sm-6">
+                                            <div class="form-group">
+                                              <label class="form-label-outside">page *</label>
+                                              <input type="text" name="page" required class="form-control" disabled value="<?=$textPage->page?>">
+                                            </div>
+                                        </div>
+                                        <div class="cell-sm-6">
+                                            <div class="form-group">
+                                              <label class="form-label-outside">Texto *</label>
+                                              <textarea name="text" required class="form-control"><?=$textPage->text?></textarea>
+                                            </div>
+                                        </div>
+                                           
+                                        <div class="range range-sm-bottom range-15">
+                                            <div class="cell-sm-6">
+                                              <div class="form-group">
+                                                <button type="submit" name="button1id" class="btn btn-sm btn-default-size btn-success btn-circle">Actualizar</button>
+                                              </div>
+                                            </div>
+                                            
+                                          </div>
+                                        </div>
+                                    </div>
+                                </form> 
+                            </blockquote>
+                             
+                         <?php } ?> 
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
                 <footer class="page-footer page-footer-default">
                   <div class="shell">
                     <div class="range range-xs-center">

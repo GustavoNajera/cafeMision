@@ -4,16 +4,16 @@
     
     <?php
         
-        include_once './business/ProductBusiness.php';
+        include_once './business/GalleryBusiness.php';
         include_once './business/TextPageBusiness.php';
         
-        //Se obtienen los productos en el lenguaje especificado
-        $listProduct = (new ProductBusiness())->getAllproductLenBusiness();
+        //Se obtienen los elementos de la galería en el lenguaje especificado
+        $listGallery = (new GalleryBusiness)->getAllGalleryLenBusiness();
         
         //Se obtiene la ruta de las imágenes
         $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
         $pathTemplate = $pathTem["imgTemplate"];
-        $pathProduct = $pathTem["imgProduct"];
+        $pathGallery = $pathTem["imgGallery"];
     ?>
     <title>Principal Admin</title>
     
@@ -22,7 +22,7 @@
           <main id="perspective" class="page-content">
             <div class="content-wrapper">
               <div class="page-header page-header-perspective">
-                  <div class="page-header-left"><a href="./admin?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
+                  <div class="page-header-left"><a href="./admin" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
                 <div class="page-header-right">
                   <div id="perspective-open-menu" data-custom-toggle=".perspective-menu-toggle" data-custom-toggle-hide-on-blur="true"><span class="perspective-menu-text">Menu</span>
                     <button class="perspective-menu-toggle"><span></span></button>
@@ -34,6 +34,8 @@
                   <div class="page-title-content">
                     <div class="shell">
                       <p class="page-title-header">Administración</p>
+                        <div class="unit unit-spacimg-md unit-xs-horizontal unit-align-center unit-middle">                              
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -42,48 +44,41 @@
                     <div class="shell">
                       <div class="range range-sm-center range-75">
                         <div class="cell-xs-12">
-                          <h2>Productos</h2>
+                          <h2>Galería</h2>
                           <div class="p text-width-medium">
-                            <h3>Asegurese de no dejar ningún campo sin texto.</h3>
+                            <h3>Asegurese de no dejar ningún campo sin texto.<br>
+                                La imagen es la misma para el elemento en ambos lenguajes
+                            </h3>
                           </div>
                         </div>
                         <div class="cell-lg-10">
-                          
-                            
-                        <blockquote class="quote-review"  style="background-color: #c0a16b">
-                                 <form  enctype="multipart/form-data" method="POST" action="./actionProduct?action=insert">
+                            <blockquote class="quote-review" style="background-color: #c0a16b">
+                                 <form  enctype="multipart/form-data" method="POST" action="./actionGallery?action=insert">
                                      
                                     <div class="quote-fullwidth-body">
+                                        
                                         <div class="range range-sm-bottom range-15">
-                                        <div class="cell-sm-12 text-center">
-                                            <h3>Insertar un nuevo Producto</h3>
-                                        </div>
-                                        <div class="cell-sm-6">
-                                            <div class="form-group">
-                                                <label class="form-label-outside">Nombre en español *</label>
-                                                <input type="text" name="namees" required class="form-control">
-                                            </div>
-                                          </div>
-                                            <div class="cell-sm-6">
-                                            <div class="form-group">
-                                                <label class="form-label-outside">Nombre en inglés *</label>
-                                                <input type="text" name="namein" required class="form-control">
-                                            </div>
-                                          </div>  
+                                          
+                                            <div class="range range-sm-bottom range-15">
+                                                <div class="cell-sm-12 text-center">
+                                                    <h3>Insertar un nuevo elemento en Glería</h3>
+                                                </div>
+                                                
+                                                <div class="cell-sm-6">
+                                                  <div class="form-group">
+                                                    <label class="form-label-outside">Descripción en español *</label>
+                                                    <input type="text" name="descriptionEs" required class="form-control">
+                                                  </div>
+                                                </div>
+                                                
+                                                <div class="cell-sm-6">
+                                                  <div class="form-group">
+                                                     <label class="form-label-outside">Descripción en ingles *</label>
+                                                     <input type="text" name="descriptionIn" required class="form-control">
+                                                  </div>
+                                                </div>
+                                              </div>
                                             
-                                        <div class="cell-sm-6">
-                                            <div class="form-group">
-                                              <label class="form-label-outside">Descripción en español *</label>
-                                              <textarea name="descriptiones" required class="form-control"></textarea>
-                                            </div>
-                                          </div>
-                                            <div class="cell-sm-6">
-                                            <div class="form-group">
-                                              <label class="form-label-outside">Descripción en Inglés *</label>
-                                              <textarea name="descriptionin" required class="form-control"></textarea>
-                                            </div>
-                                          </div>
-
                                             <div class="range range-sm-bottom range-15">
                                                 <div class="cell-sm-12">
                                                   <div class="form-group">
@@ -91,7 +86,7 @@
                                                     <input required type="file" class="btn-block" name='image' id="imagen" accept="image/*">
                                                   </div>
                                                 </div>
-                                              </div>
+                                            </div>
 
                                             <div class="range range-sm-bottom range-15">
                                                 <div class="cell-sm-6">
@@ -99,52 +94,44 @@
                                                     <button type="submit" name="button1id" class="btn btn-sm btn-default-size btn-success btn-circle">Insertar</button>
                                                   </div>
                                                 </div>
-                                                
                                               </div>
                                         </div>
                                     </div>
                                 </form> 
-                            </blockquote>    
-                            
-                        <?php foreach ($listProduct as $product){?>
+                            </blockquote>
+                          
+                        <?php foreach ($listGallery as $gallery){?>
                            
                             <blockquote class="quote-review">
-                                 <form  enctype="multipart/form-data" method="POST" action="./actionProduct?action=update">
+                                 <form  enctype="multipart/form-data" method="POST" action="./actionGallery?action=update">
                                     <!-- Input para almacenar información no visible al usuario -->
-                                    <input hidden type="text" name="idproduct" value="<?=$product->idproduct?>">
-                                    <input hidden type="text" name="imageOriginal" value="<?=$product->image?>">
+                                    <input hidden type="text" name="idgallery" value="<?=$gallery->idgallery?>">
+                                    <input hidden type="text" name="imageOriginal" value="<?=$gallery->image?>">
                                      
                                     <div class="quote-review-left">
-                                        <div class="quote-review-avatar"><img src="<?=$pathProduct . $product->image?>" alt="" width="100" height="100" class="quote-review-image"/></div>
+                                        <div class="quote-review-avatar"><img src="<?=$pathGallery . $gallery->image?>" alt="" width="100" height="100" class="quote-review-image"/></div>
                                     </div>
                                     <div class="quote-fullwidth-body">
+                                        
                                         <div class="range range-sm-bottom range-15">
-                                        <div class="cell-sm-6">
-                                            <div class="form-group">
-                                                <label class="form-label-outside">Nombre en español *</label>
-                                                <input type="text" name="namees" required class="form-control" value="<?=$product->namees?>">
-                                            </div>
-                                          </div>
-                                            <div class="cell-sm-6">
-                                            <div class="form-group">
-                                                <label class="form-label-outside">Nombre en inglés *</label>
-                                                <input type="text" name="namein" required class="form-control" value="<?=$product->namein?>">
-                                            </div>
-                                          </div>  
+                                          
+                                            <div class="range range-sm-bottom range-15">
+                                                
+                                                <div class="cell-sm-6">
+                                                  <div class="form-group">
+                                                    <label class="form-label-outside">Descripción en español *</label>
+                                                    <input type="text" name="descriptionEs" required class="form-control" value="<?=$gallery->descriptionEs?>">
+                                                  </div>
+                                                </div>
+                                                
+                                                <div class="cell-sm-6">
+                                                  <div class="form-group">
+                                                     <label class="form-label-outside">Descripción en ingles *</label>
+                                                     <input type="text" name="descriptionIn" required class="form-control" value="<?=$gallery->descriptionIn?>">
+                                                  </div>
+                                                </div>
+                                              </div>
                                             
-                                        <div class="cell-sm-6">
-                                            <div class="form-group">
-                                              <label class="form-label-outside">Descripción en español *</label>
-                                              <textarea name="descriptiones" required class="form-control"><?=$product->descriptiones?></textarea>
-                                            </div>
-                                          </div>
-                                            <div class="cell-sm-6">
-                                            <div class="form-group">
-                                              <label class="form-label-outside">Descripción en Inglés *</label>
-                                              <textarea name="descriptionin" required class="form-control"><?=$product->descriptionin?></textarea>
-                                            </div>
-                                          </div>
-
                                             <div class="range range-sm-bottom range-15">
                                                 <div class="cell-sm-12">
                                                   <div class="form-group">
@@ -152,7 +139,7 @@
                                                     <input type="file" class="btn-block" name='image' id="imagen" accept="image/*">
                                                   </div>
                                                 </div>
-                                              </div>
+                                            </div>
 
                                             <div class="range range-sm-bottom range-15">
                                                 <div class="cell-sm-6">
@@ -162,7 +149,7 @@
                                                 </div>
                                                 <div class="cell-sm-6">
                                                   <div class="form-group">
-                                                      <a href="./actionProduct?action=delete&&idproduct=<?=$product->idproduct?>&&image=<?=$product->image?>" class="btn btn-sm btn-default-size btn-danger btn-circle">Eliminar</a>
+                                                      <a href="./actionGallery?action=delete&&idgallery=<?=$gallery->idgallery?>&&image=<?=$gallery->image?>" class="btn btn-sm btn-default-size btn-danger btn-circle">Eliminar</a>
                                                   </div>
                                                 </div>
 

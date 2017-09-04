@@ -8,6 +8,8 @@
         include_once './business/TextPageBusiness.php';
         $listProduct = (new ProductBusiness)->getAllproductBusiness();
         
+        if ( ! session_id() ) @ session_start();
+        $language = isset($_SESSION["language"])?$_SESSION["language"] : "ingles";
         //Se obtienen los textos en el lenguaje elegido
         $text = (new TextPageBusiness())->getTextByPageBusiness("products");
         
@@ -43,11 +45,15 @@
                           <div class="range range-30">
                               
                             <?php foreach ($listProduct as $product){?>
+                               <?php 
+                                    $description = ($language == "spanish")?  $product->descriptiones : $product->descriptionin; 
+                                    $name = ($language == "spanish")?  $product->namees : $product->namein; 
+                                ?>
                                 <div class="cell-sm-6 cell-md-4 height-fill">
                                   <div class="thumbnail-card"><img src="<?=($pathProduct.$product->image)?>" alt="" width="370" height="310" class="thumbnail-card-image"/>
-                                      <div class="thumbnail-card-body"><a href="./product-<?=$product->nameproduct?>" class="thumbnail-card-header"><?=$product->nameproduct?></a>
+                                      <div class="thumbnail-card-body"><a href="./product?filtrado=<?=$name?>" class="thumbnail-card-header"><?=$name?></a>
                                       <div class="thumbnail-card-text">
-                                        <p><?=$product->description?></p>
+                                        <p><?=$description?></p>
                                       </div>
                                       
                                     </div>
@@ -61,19 +67,19 @@
                     </div>
                   </section>
 
-                <footer class="page-footer page-footer-default">
-                  <div class="shell">
-                    <div class="range range-xs-center">
-                      <div class="cell-lg-10"><a href="index.html" class="brand"><img src="<?=$pathAbout?>logo-white-185x41.png" alt="" width="185" height="41"/></a>
-                        
-                        <div class="divider divider-small divider-light block-centered"></div>
-                        <ul class="inline-list inline-list-md">
-                          <li><a href="#" class="icon icon-xs link-gray-light fa-facebook"></a></li>
-                        </ul>
-                      </div>
+                           <footer class="page-footer page-footer-default">
+                <div class="shell">
+                  <div class="range range-xs-center">
+                    <div class="cell-lg-10"><a href="./" class="brand"><img src="public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a>
+
+                      <div class="divider divider-small divider-light block-centered"></div>
+                      <ul class="inline-list inline-list-md">
+                        <h4>Universidad de Costa Rica - Trabajo Comunal 2017 </h4>
+                      </ul>
                     </div>
                   </div>
-                </footer>
+                </div>
+              </footer>
               </div>
               <div id="perspective-content-overlay"></div>
             </div>

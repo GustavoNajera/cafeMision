@@ -4,16 +4,16 @@
     
     <?php
         
-        include_once './business/ProductBusiness.php';
+        include_once './business/ProcessBusiness.php';
         include_once './business/TextPageBusiness.php';
         
         //Se obtienen los productos en el lenguaje especificado
-        $listProduct = (new ProductBusiness())->getAllproductLenBusiness();
+        $listProcess = (new ProcessBusiness())->getAllprocessBusiness();
         
         //Se obtiene la ruta de las imágenes
         $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
         $pathTemplate = $pathTem["imgTemplate"];
-        $pathProduct = $pathTem["imgProduct"];
+        $pathProduct = $pathTem["imgProcess"];
     ?>
     <title>Principal Admin</title>
     
@@ -42,22 +42,21 @@
                     <div class="shell">
                       <div class="range range-sm-center range-75">
                         <div class="cell-xs-12">
-                          <h2>Productos</h2>
+                          <h2>Procesos</h2>
                           <div class="p text-width-medium">
                             <h3>Asegurese de no dejar ningún campo sin texto.</h3>
                           </div>
                         </div>
                         <div class="cell-lg-10">
                           
-                            
-                        <blockquote class="quote-review"  style="background-color: #c0a16b">
-                                 <form  enctype="multipart/form-data" method="POST" action="./actionProduct?action=insert">
-                                     
+                        <blockquote class="quote-review" style="background-color: #c0a16b">
+                                 <form  enctype="multipart/form-data" method="POST" action="./actionProcess?action=insert">
+                                   <div class="cell-sm-12 text-center">
+                                        <h3>Insertar un nuevo Proceso</h3>
+                                    </div>
+
                                     <div class="quote-fullwidth-body">
                                         <div class="range range-sm-bottom range-15">
-                                        <div class="cell-sm-12 text-center">
-                                            <h3>Insertar un nuevo Producto</h3>
-                                        </div>
                                         <div class="cell-sm-6">
                                             <div class="form-group">
                                                 <label class="form-label-outside">Nombre en español *</label>
@@ -87,8 +86,8 @@
                                             <div class="range range-sm-bottom range-15">
                                                 <div class="cell-sm-12">
                                                   <div class="form-group">
-                                                    <label class="form-label-outside">Imagen *</label>
-                                                    <input required type="file" class="btn-block" name='image' id="imagen" accept="image/*">
+                                                    <label class="form-label-outside">Nueva imagen *</label>
+                                                    <input type="file" class="btn-block" name='image' id="imagen" accept="image/*">
                                                   </div>
                                                 </div>
                                               </div>
@@ -106,42 +105,43 @@
                                 </form> 
                             </blockquote>    
                             
-                        <?php foreach ($listProduct as $product){?>
+                        
+                        <?php foreach ($listProcess as $process){?>
                            
                             <blockquote class="quote-review">
-                                 <form  enctype="multipart/form-data" method="POST" action="./actionProduct?action=update">
+                                 <form  enctype="multipart/form-data" method="POST" action="./actionProcess?action=update">
                                     <!-- Input para almacenar información no visible al usuario -->
-                                    <input hidden type="text" name="idproduct" value="<?=$product->idproduct?>">
-                                    <input hidden type="text" name="imageOriginal" value="<?=$product->image?>">
+                                    <input hidden type="text" name="idprocess" value="<?=$process->idprocess?>">
+                                    <input hidden type="text" name="imageOriginal" value="<?=$process->image?>">
                                      
                                     <div class="quote-review-left">
-                                        <div class="quote-review-avatar"><img src="<?=$pathProduct . $product->image?>" alt="" width="100" height="100" class="quote-review-image"/></div>
+                                        <div class="quote-review-avatar"><img src="<?=$pathProduct . $process->image?>" alt="" width="100" height="100" class="quote-review-image"/></div>
                                     </div>
                                     <div class="quote-fullwidth-body">
                                         <div class="range range-sm-bottom range-15">
                                         <div class="cell-sm-6">
                                             <div class="form-group">
                                                 <label class="form-label-outside">Nombre en español *</label>
-                                                <input type="text" name="namees" required class="form-control" value="<?=$product->namees?>">
+                                                <input type="text" name="namees" required class="form-control" value="<?=$process->namees?>">
                                             </div>
                                           </div>
                                             <div class="cell-sm-6">
                                             <div class="form-group">
                                                 <label class="form-label-outside">Nombre en inglés *</label>
-                                                <input type="text" name="namein" required class="form-control" value="<?=$product->namein?>">
+                                                <input type="text" name="namein" required class="form-control" value="<?=$process->namein?>">
                                             </div>
                                           </div>  
                                             
                                         <div class="cell-sm-6">
                                             <div class="form-group">
                                               <label class="form-label-outside">Descripción en español *</label>
-                                              <textarea name="descriptiones" required class="form-control"><?=$product->descriptiones?></textarea>
+                                              <textarea name="descriptiones" required class="form-control"><?=$process->descriptiones?></textarea>
                                             </div>
                                           </div>
                                             <div class="cell-sm-6">
                                             <div class="form-group">
                                               <label class="form-label-outside">Descripción en Inglés *</label>
-                                              <textarea name="descriptionin" required class="form-control"><?=$product->descriptionin?></textarea>
+                                              <textarea name="descriptionin" required class="form-control"><?=$process->descriptionin?></textarea>
                                             </div>
                                           </div>
 
@@ -162,7 +162,7 @@
                                                 </div>
                                                 <div class="cell-sm-6">
                                                   <div class="form-group">
-                                                      <a href="./actionProduct?action=delete&&idproduct=<?=$product->idproduct?>&&image=<?=$product->image?>" class="btn btn-sm btn-default-size btn-danger btn-circle">Eliminar</a>
+                                                      <a href="./actionProcess?action=delete&&idprocess=<?=$process->idprocess?>&&image=<?=$process->image?>" class="btn btn-sm btn-default-size btn-danger btn-circle">Eliminar</a>
                                                   </div>
                                                 </div>
 

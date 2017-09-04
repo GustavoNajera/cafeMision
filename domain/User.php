@@ -11,8 +11,9 @@ class User {
     public $name;
     public $password;
     public $user;
+    public $role;
     
-    function __construct($iduser, $email, $idcard, $image, $lastname, $name, $password, $user) {
+    function __construct($iduser, $email, $idcard, $image, $lastname, $name, $password, $user, $role) {
         $this->iduser = $iduser;
         $this->email = $email;
         $this->idcard = $idcard;
@@ -21,6 +22,9 @@ class User {
         $this->name = $name;
         $this->password = $password;
         $this->user = $user;
+        $this->role = $role;
     }
+
+    
 
 }

@@ -7,6 +7,8 @@
         include_once './business/TextPageBusiness.php';
         $listGallery = (new GalleryBusiness())->getAllGalleryBusiness();
         
+         if ( ! session_id() ) @ session_start();
+        $language = isset($_SESSION["language"])?$_SESSION["language"] : "ingles";
         //Se obtienen los textos en el lenguaje elegido
         $text = (new TextPageBusiness())->getTextByPageBusiness("gallery");
         
@@ -47,9 +49,10 @@
                         
                         <?php foreach ($listGallery as $image){ ?>
                             <div data-filter="*" class="col-xs-12 col-sm-6 col-md-3 isotope-item">
+                                <?php $description = ($language == "spanish")?  $image->descriptionEs : $image->descriptionIn; ?>
                                 <a data-photo-swipe-item="" data-size="1200x968" href="<?=$pathGallery . $image->image?>" class="thumbnail-gallery"><img src="<?=$pathGallery . $image->image?>" width="480" height="290" alt="">
                                     <div class="thumbnail-caption"><span class="icon icon-lg fa-search-plus"></span>
-                                        <p class="description"><?=$image->description?></p>
+                                        <p class="description"><?=$description?></p>
                                     </div>
                                 </a>
                             </div>
@@ -62,19 +65,19 @@
               </div>
             </section>
 
-            <footer class="page-footer page-footer-default">
-              <div class="shell">
-                <div class="range range-xs-center">
-                  <div class="cell-lg-10"><a href="index.html" class="brand"><img src="public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a>
-                    
-                    <div class="divider divider-small divider-light block-centered"></div>
-                    <ul class="inline-list inline-list-md">
-                      <li><a href="#" class="icon icon-xs link-gray-light fa-facebook"></a></li>
-                    </ul>
+                        <footer class="page-footer page-footer-default">
+                <div class="shell">
+                  <div class="range range-xs-center">
+                    <div class="cell-lg-10"><a href="./" class="brand"><img src="public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a>
+
+                      <div class="divider divider-small divider-light block-centered"></div>
+                      <ul class="inline-list inline-list-md">
+                        <h4>Universidad de Costa Rica - Trabajo Comunal 2017 </h4>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </footer>
+              </footer>
           </div>
           <div id="perspective-content-overlay"></div>
         </div>

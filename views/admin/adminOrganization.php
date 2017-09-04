@@ -5,10 +5,9 @@
     <?php
     
         /*Se verifica que venga especificado el lenguaje, en caso contrario se usa por defecto ingles*/
-        if($filtrado == "") header("Location: ./adminOrganization-ingles");
+        if($filtrado == "") header("Location: ./adminOrganization?filtrado=ingles");
         
         include_once './business/OrganizationBusiness.php';
-        include_once './business/TextPageBusiness.php';
         
         //Se obtienen los datos de la organización en el lenguaje especificado
         $organization = (new OrganizationBusiness())->getOrganizationBusinessLan($filtrado);
@@ -24,7 +23,7 @@
           <main id="perspective" class="page-content">
             <div class="content-wrapper">
               <div class="page-header page-header-perspective">
-                  <div class="page-header-left"><a href="./admin-<?=$filtrado?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
+                  <div class="page-header-left"><a href="./admin?filtrado=<?=$filtrado?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
                 <div class="page-header-right">
                   <div id="perspective-open-menu" data-custom-toggle=".perspective-menu-toggle" data-custom-toggle-hide-on-blur="true"><span class="perspective-menu-text">Menu</span>
                     <button class="perspective-menu-toggle"><span></span></button>
@@ -41,11 +40,11 @@
                             
                             <!-- Se especifica el lenguaje que desea administrar. -->
                             <?php if($filtrado != "ingles"){ ?>
-                            <div style="margin: 10px;" class="unit-body"><a href="<?=$ruta?>-ingles" class="btn btn-sm btn-circle">Ingles</a></div>
-                                <div class="unit-body"><a href="<?=$ruta?>-spanish" class="btn btn-sm btn-circle btn-primary">Español</a></div>
+                            <div style="margin: 10px;" class="unit-body"><a href="<?=$ruta?>?filtrado=ingles" class="btn btn-sm btn-circle">Ingles</a></div>
+                                <div class="unit-body"><a href="<?=$ruta?>?filtrado=spanish" class="btn btn-sm btn-circle btn-primary">Español</a></div>
                             <?php }else {?>
-                                <div style="margin: 10px;" class="unit-body"><a href="<?=$ruta?>-ingles" class="btn btn-sm btn-circle  btn-primary">Ingles</a></div>
-                                <div class="unit-body"><a href="<?=$ruta?>-spanish" class="btn btn-sm btn-circle">Español</a></div>
+                                <div style="margin: 10px;" class="unit-body"><a href="<?=$ruta?>?filtrado=ingles" class="btn btn-sm btn-circle  btn-primary">Ingles</a></div>
+                                <div class="unit-body"><a href="<?=$ruta?>?filtrado=spanish" class="btn btn-sm btn-circle">Español</a></div>
                             <?php }?>
                                 
                         </div>
@@ -57,13 +56,14 @@
                     <div class="shell">
                       <div class="range range-sm-center range-75">
                         <div class="cell-xs-12">
-                          <h2>Datos de la organización</h2>
+                          <h2>Textos de la Página</h2>
                           <div class="p text-width-medium">
                             <h3>Asegurese de no dejar ningún campo sin texto.</h3>
                           </div>
                         </div>
                         <div class="cell-lg-10">
-                            <form method="POST" action="./actionOrganization-<?=$filtrado?>-update">
+                            
+                            <form method="POST" action="./actionOrganization?filtrado=<?=$filtrado?>&&action=update">
                                 
                                 <!-- Input que almacenan información no visible al usuario -->
                                 <input hidden type="text" name="idorganization" value="<?=$organization->idorganization?>">

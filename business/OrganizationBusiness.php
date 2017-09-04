@@ -6,7 +6,9 @@ class OrganizationBusiness extends OrganizationData{
     
     //retorna los datos de la empresa, en ambos idiomas
     public function getOrganizationBusiness() {
-        return $this->getOrganizationData("ingles");
+        if ( ! session_id() ) @ session_start();
+        $language = isset($_SESSION["language"])?$_SESSION["language"] : "ingles";
+        return $this->getOrganizationData($language);
     }
     
     //retorna los datos de la empresa, en el idioma elegido

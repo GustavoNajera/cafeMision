@@ -1,6 +1,6 @@
 <?php
 include_once './Business/SessionBusiness.php';
-$ruta = explode("/", $_SERVER["REQUEST_URI"])[2];
+$ruta = explode("?",(explode("/", $_SERVER["REQUEST_URI"])[2]))[0];
 
 //Se configura la ruta de las vistas
 $ruteView = "views/";
@@ -23,20 +23,25 @@ $routes = [
     "adminOrganization" => $ruteView . "admin/adminOrganization.php",
     "actionOrganization" => $ruteActions . "ActionOrganization.php",
     "actionProduct" => $ruteActions . "ActionProduct.php",
-    "adminProduct" => $ruteView . "admin/adminProduct.php"
+    "adminProduct" => $ruteView . "admin/adminProduct.php",
+    "adminGallery" => $ruteView . "admin/adminGallery.php",
+    "actionGallery" => $ruteActions . "ActionGallery.php",
+    "adminProcess" => $ruteView . "admin/adminProcess.php",
+    "actionProcess" => $ruteActions . "ActionProcess.php",
+    "adminTextPage" => $ruteView . "admin/adminTextPage.php",
+    "actionTextPage" => $ruteActions . "ActionTextPage.php",
+    "adminUser" => $ruteView . "admin/adminUser.php",
+    "actionUser" => $ruteActions . "ActionUser.php",
+    "adminPartner" => $ruteView . "admin/adminPartner.php",
+    "actionPartner" => $ruteActions . "ActionPartner.php",
+    "register" => $ruteView . "cliente/register.php",
+    "actionComment" => $ruteActions . "ActionComment.php",
+    "languageClient" => $ruteActions . "ActionLanguage.php"
 ];
 
+$filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
 
-$action = "";
-if(count(explode("-",$ruta)) > 2){
-    $action = explode("-",$ruta)[2];
-}
-
-$filtrado = "";
-if(count(explode("-",$ruta)) > 1){
-    $filtrado = explode("-",$ruta)[1];
-    $ruta = explode("-",$ruta)[0];
-}
-
+$action = (isset($_GET["action"]))? $_GET["action"] : "";
 
 include_once "./" . $routes[$ruta];
+

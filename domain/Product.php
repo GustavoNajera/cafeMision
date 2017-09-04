@@ -4,17 +4,19 @@ class Product {
     
     //atributos
     public $idproduct;
-    public $description;
+    public $descriptiones;
+    public $descriptionin;
     public $image;
-    public $language;
-    public $nameproduct;
+    public $namees;
+    public $namein;
     
-    function __construct($idproduct, $description, $image, $language, $nameproduct) {
+    function __construct($idproduct, $descriptiones, $descriptionin, $image, $namees, $namein) {
         $this->idproduct = $idproduct;
-        $this->description = $description;
+        $this->descriptiones = $descriptiones;
+        $this->descriptionin = $descriptionin;
         $this->image = $image;
-        $this->language = $language;
-        $this->nameproduct = $nameproduct;
+        $this->namees = $namees;
+        $this->namein = $namein;
     }
 
 

@@ -18,7 +18,7 @@ class UserData {
         $userTem = $this->connection->findOne("*", "user",$condition);        
         
         return new User($userTem["iduser"], $userTem["email"], $userTem["idcard"], $userTem["image"],
-                    $userTem["lastname"], $userTem["name"], $userTem["password"], $userTem["user"]);
+                    $userTem["lastname"], $userTem["name"], $userTem["password"], $userTem["user"], $userTem["role"]);
     }  
     
     /*
@@ -29,7 +29,30 @@ class UserData {
         $userTem = $this->connection->findOne("*", "user",$condition);        
         
         return new User($userTem["iduser"], $userTem["email"], $userTem["idcard"], $userTem["image"],
-                    $userTem["lastname"], $userTem["name"], $userTem["password"], $userTem["user"]);
+                    $userTem["lastname"], $userTem["name"], $userTem["password"], $userTem["user"], $userTem["role"]);
     }    
+    
+    /*
+     * Actualiza un usuario
+     */
+    public function updateUserData($user){
+        $attributes = "name = '".$user->name . "',email = '".$user->email .
+                "', idcard = '" . $user->idcard . "', image = '" . $user->image . "', " . " lastname = '" .
+                $user->lastname . "', password = '" . $user->password . "', user = '" . $user->user . "'";
+        
+        $condition = "iduser = " . $user->iduser; 
+        $table = "user";
+        $this->connection->update($attributes, $table, $condition);
+    }  
+    
+    /*
+    * Inserta un elemento de galería
+    */
+    public function insertUserData($user){
+        $attributes = "null,'". $user->name."','". $user->lastname."','". $user->idcard."','".$user->user."','".
+                $user->email . "','".$user->password . "','". $user->image."','".$user->role."'";
+        $table = "user";
+        $this->connection->insert($attributes,$table);
+    }
     
 }

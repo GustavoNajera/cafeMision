@@ -48,6 +48,22 @@
             return mysqli_query($this->link, $sql);
        }
        
+       /*
+        * Inserta registros de una tabla
+        */
+       public function insert($attributes, $table){
+             $sql = "insert into ".$table." values(" . $attributes . ")";
+            return mysqli_query($this->link, $sql);
+       }
+       
+       /*
+        * Elimina registro de una tabla
+        */
+       public function delete($table,$condition){
+             $sql = "DELETE FROM ".$table." WHERE " . $condition;
+            return mysqli_query($this->link, $sql);
+       }
+       
 
     }
 

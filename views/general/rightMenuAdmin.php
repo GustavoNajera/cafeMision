@@ -8,21 +8,16 @@
       </div>
       <div class="rd-navbar-nav-wrap">
         <div class="rd-navbar-nav-inner">
-          <ul class="rd-navbar-nav">
-              <li><a href="./admin-<?=$filtrado?>">Home</a></li>
-             
-            <li class="active"><a href="./adminOrganization-<?=$filtrado?>">Organización</a>
-            </li>
-            <li><a href="./adminProduct">Productos</a></li>
-            <li><a href="./gallery">Gallery</a></li>
-            <li><a href="./contact">Contacts </a></li>
-            <li class="active"><a href="./session">Login</a>
-                <ul class="rd-navbar-dropdown">
-                    <li><a href="./SessionLogOut">LogOut</a></li>
-                </ul>
-            </li>
-           
-          </ul>
+            <ul class="rd-navbar-nav">
+                <li class="active"><a href="./adminUser">Mi cuenta</a></li>
+                <li class="active"><a href="./adminOrganization?filtrado=<?=$filtrado?>">Organización</a></li>
+                <li><a href="./adminProduct">Productos</a></li>
+                <li><a href="./adminGallery">Gallery</a></li>
+                <li><a href="./adminProcess">Procesos </a></li>
+                <li><a href="./adminPartner">Socios</a></li>
+                <li class="active"><a href="./adminTextPage">Texto de página</a></li>
+                <li><a href="./SessionLogOut">LogOut</a></li>
+            </ul>
           
         </div>
       </div>

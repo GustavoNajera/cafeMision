@@ -9,23 +9,34 @@
       <div class="rd-navbar-nav-wrap">
         <div class="rd-navbar-nav-inner">
           <ul class="rd-navbar-nav">
-            <li><a href="./">Home</a></li>
+            <li><a href="./">Idioma</a>
+                 <ul class="rd-navbar-dropdown">
+                    <li><a href="./languageClient?filtrado=<?=$ruta?>&&action=es">Español</a></li>
+                    <li><a href="./languageClient?filtrado=<?=$ruta?>&&action=in">Ingles</a></li>
+                </ul>
+            </li>
              
-            <li class="active"><a href="./about">About</a>
+            <li class="active"><a href="./about">Sobre Nosotros</a>
               <ul class="rd-navbar-dropdown">
-                <li><a href="./testimonials">Testimonials</a>
+                <li><a href="./testimonials">Testimonios</a>
                 </li>
               </ul>
             </li>
             <li><a href="./products">Productos</a></li>
-            <li><a href="./gallery">Gallery</a></li>
-            <li><a href="./contact">Contacts </a></li>
-            <li class="active"><a href="./session">Login</a>
+            <li><a href="./gallery">Gallería</a></li>
+            <li><a href="./contact">Contactos </a></li>
+            <?php 
+            if ( ! session_id() ) @ session_start();
+            if(!isset($_SESSION["id"])){ 
+            ?>
+            <li class="active"><a href="./session">Sesión</a>
                 <ul class="rd-navbar-dropdown">
-                    <li><a href="./SessionLogOut">LogOut</a></li>
+                    <li><a href="./register">Registrar</a></li>
                 </ul>
             </li>
-           
+            <?php }else{ ?>
+                <li><a href="./SessionLogOut">Salir</a></li>
+            <?php }?>
           </ul>
           
         </div>

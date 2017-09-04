@@ -91,12 +91,16 @@
                   <div class="image-wrap-inner">
                     <div class="range range-condensed range-inner-bordered">
                         <?php foreach ($listProcess as $process){ ?>
+                        <?php 
+                            $description = ($filtrado == "spanich")?  $process->descriptiones : $process->descriptionin; 
+                            $name = ($filtrado == "spanich")?  $process->namees : $process->namein; 
+                        ?>
                             <div class="cell-xs-6">
                                 <article class="box-icon">
                                     <figure class="box-icon-image"><img src="<?=$pathProcess . $process->image ?>" alt="" width="84" height="84"/>
                                     </figure>
-                                    <p class="box-icon-header"><?=$process->name?></p>
-                                    <p class="box-icon-text"><?=$process->description?></p>
+                                    <p class="box-icon-header"><?=$name?></p>
+                                    <p class="box-icon-text"><?=$description?></p>
                                 </article>
                             </div>
                         <?php } ?>
@@ -156,11 +160,15 @@
                       
                       
                     <?php foreach ($listProduct as $product){?>
+                       <?php 
+                            $description = ($filtrado == "spanich")?  $product->descriptiones : $product->descriptionin; 
+                            $name = ($filtrado == "spanich")?  $product->namees : $product->namein; 
+                        ?>
                         <div class="cell-sm-6 cell-md-4 height-fill">
                           <div class="thumbnail-card"><img src="<?=($pathProduct.$product->image)?>" alt="" width="370" height="310" class="thumbnail-card-image"/>
-                              <div class="thumbnail-card-body"><a href="./product-<?=$product->nameproduct?>" class="thumbnail-card-header"><?=$product->nameproduct?></a>
+                              <div class="thumbnail-card-body"><a href="./product?filtrado=<?=$name?>" class="thumbnail-card-header"><?=$name?></a>
                               <div class="thumbnail-card-text">
-                                <p><?=$product->description?></p>
+                                <p><?=$description?></p>
                               </div>
 
                             </div>
@@ -305,38 +313,12 @@
             </div>
           </section>
 
-          <footer class="page-footer page-footer-variant-3">
+           <footer class="page-footer page-footer-variant-3">
             <div class="shell">
               <div class="range range-50">
-                <div class="cell-sm-6 cell-md-4">
-                  <h3>Pages</h3>
-                  <div class="divider divider-conch"></div>
-                  <ul style="max-width: 390px;" class="footer-navigation row footer-navigation-vertical">
-                    <li class="col-xs-6"><a href="index.html">Home</a></li>
-                    <li class="col-xs-6"><a href="blog.html">Blog</a></li>
-                    <li class="col-xs-6"><a href="./about">About</a></li>
-                    <li class="col-xs-6"><a href="shop.html">Shop</a></li>
-                    <li class="col-xs-6"><a href="./service">Services</a></li>
-                    <li class="col-xs-6"><a href="contacts-1.html">Contacts</a></li>
-                  </ul>
-                </div>
+                <div class="cell-sm-6 cell-md-4"></div>
                 <div class="cell-sm-6 cell-md-5">
-                  <h3>Description</h3>
-                  <div class="divider divider-conch"></div>
-                  <div class="text-highlighted-wrap">
-                    <p class="text-highlighted">Coffee Shop is a cosy place where friends meet to share coffee, cakes and light meals. At night, it is transformed into a vibey eatery.</p>
-                  </div>
-                </div>
-                <div class="cell-sm-6 cell-md-3">
-                  <h3>Follow Us</h3>
-                  <div class="divider divider-conch"></div>
-                  <ul class="inline-list inline-list-xs">
-                    <li><a href="#" class="icon icon-xs-outline icon-wild-sand-filled icon-circle fa-facebook"></a></li>
-                    <li><a href="#" class="icon icon-xs-outline icon-wild-sand-filled icon-circle fa-twitter"></a></li>
-                    <li><a href="#" class="icon icon-xs-outline icon-wild-sand-filled icon-circle fa-youtube"></a></li>
-                    <li><a href="#" class="icon icon-xs-outline icon-wild-sand-filled icon-circle fa-linkedin"></a></li>
-                  </ul>
-                  More <a rel="nofollow" href="http://www.templatemonster.com/category.php?category=161&type=1" target="_blank">Coffee Shop Templates at TemplateMonster.com</a>
+                     <p><h3>Universidad de Costa Rica</h3> Trabajo Comunal - 2017</p>
                 </div>
               </div>
             </div>

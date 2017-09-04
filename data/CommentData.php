@@ -26,4 +26,14 @@ class CommentData {
         }
         return $array;
     }
+    
+    
+    /*
+     * inserta los comentarios
+     */
+    public function insertCommentData($comment) {        
+        $attributes = "null, '" .$comment->comment ."','".$comment->user."'";
+        $table = "comment";
+        $this->connection->insert($attributes,$table);
+    }
 }

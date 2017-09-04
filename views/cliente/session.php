@@ -29,7 +29,7 @@
                             <div class="cell-sm-6">
                               <div class="form-group">
                                 <label for="billing-first-name" class="form-label-outside">Email / Username *</label>
-                                <input id="billing-first-name" type="email" name="user" required class="form-control">
+                                <input id="billing-first-name" type="text" name="user" required class="form-control">
                               </div>
                             </div>
                             <div class="cell-sm-6">
@@ -51,17 +51,19 @@
             
             
             
-            <footer class="page-footer page-footer-variant-3">
-            <div class="shell">
-              <div class="range range-50">
-                <div class="cell-sm-6 cell-md-4"></div>
-                <div class="cell-sm-6 cell-md-5">
-                     <h3>Follow Us</h3>
-                  More <a rel="nofollow" href="http://www.templatemonster.com/category.php?category=161&type=1" target="_blank">Coffee Shop Templates at TemplateMonster.com</a>
+            <footer class="page-footer page-footer-default">
+                <div class="shell">
+                  <div class="range range-xs-center">
+                    <div class="cell-lg-10"><a href="./" class="brand"><img src="public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a>
+
+                      <div class="divider divider-small divider-light block-centered"></div>
+                      <ul class="inline-list inline-list-md">
+                        <h4>Universidad de Costa Rica - Trabajo Comunal 2017 </h4>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </footer>
+              </footer>
         </div>           
         <?php include_once 'views/general/footerAndScript.php';?>
     </body>

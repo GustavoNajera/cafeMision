@@ -8,4 +8,9 @@ class CommentBusiness extends CommentData{
     public function getAllCommentBusiness() {
         return $this->getAllCommentData();
     }
+    
+    //Inserta un comentario
+    public function insertCommentBusiness($comment) {
+        return $this->insertCommentData($comment);
+    }
 }

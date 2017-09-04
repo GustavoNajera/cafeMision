@@ -12,7 +12,7 @@ class TextPage {
     function __construct($idtextpage, $keytext, $language, $page, $text) {
         $this->idtextpage = $idtextpage;
         $this->keytext = $keytext;
-        $this->language = $languaje;
+        $this->language = $language;
         $this->page = $page;
         $this->text = $text;
     }

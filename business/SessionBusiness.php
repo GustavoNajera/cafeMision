@@ -15,7 +15,14 @@ class SessionBusiness{
             if ( ! session_id() ) @ session_start();
             $_SESSION["user"]=$userResult->user;
             $_SESSION["id"]=$userResult->iduser;
-            header("Location: ./admin");
+            $_SESSION["role"]=$userResult->role;
+            $_SESSION["language"] = "ingles";
+            
+            if($userResult->role == "administrador"){
+                header("Location: ./admin");
+            }else{
+                header("Location: ./");
+            }
         }
         else{
             header("Location: ./session");
@@ -41,6 +48,7 @@ class SessionBusiness{
         if ( ! session_id() ) @ session_start();
             unset($_SESSION["user"]);
             unset($_SESSION["id"]);
+            unset($_SESSION["language"]);
             header("Location: ./session");
     }//Fin de logueo
     

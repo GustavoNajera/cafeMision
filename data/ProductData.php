@@ -13,15 +13,16 @@ class ProductData {
     /*
      * retorna los productos en el idioma seleccionado
      */
-    public function getAllProductData($language) {
-        $condition = "language = '" . $language . "'";
+    public function getAllProductData() {
+        $condition = "";
         $information = "*";
         
         $result = $this->connection->findAll($information, "product",$condition);
         $array = array();
         while ($productTem = mysqli_fetch_array($result)){
-            $productTem = new Product($productTem["idproduct"], $productTem["description"], $productTem["image"], $productTem["language"], $productTem["nameproduct"]);
-            array_push($array, $productTem);
+            $productTem2 = new Product($productTem["idproduct"], $productTem["descriptiones"], $productTem["descriptionin"],
+                    $productTem["image"], $productTem["namees"], $productTem["namein"]);
+            array_push($array, $productTem2);
         }
         return $array;
     }    
@@ -29,22 +30,42 @@ class ProductData {
     /*
      * retorna un producto en el idioma seleccionado
      */
-    public function getOneProductData($language,$product) {
-        $condition = "language = '" . $language . "' AND UPPER(nameproduct) = UPPER('" . $product . "')";
+    public function getOneProductData($product) {
+        $condition = "UPPER(namees) = UPPER('" . $product . "') or UPPER(namein) = UPPER('" . $product . "')";
         $productTem = $this->connection->findOne("*", "product", $condition);
-        return new Product($productTem["idproduct"], $productTem["description"], $productTem["image"],
-                $productTem["language"], $productTem["nameproduct"]);
+        return new Product($productTem["idproduct"], $productTem["descriptiones"], $productTem["descriptionin"],
+                    $productTem["image"], $productTem["namees"], $productTem["namein"]);
     }
     
     /*
-     * Actualiza la información de la empresa
+     * Actualiza un producto recibido
      */
     public function updateProductData($product){
-        $attributes = "description = '".$product->description . "', image = '" . $product->image .
-                "', nameproduct = '" . $product->nameproduct . "'";
+        $attributes = "descriptionin = '".$product->descriptionin . "',descriptiones = '".$product->descriptiones .
+                "', image = '" . $product->image . "', namees = '" . $product->namees . "', " .
+                " namein = '" . $product->namein . "'";
         
-        $condition = "idproduct = " . $product->idproduct . " && language = '" . $product->language . "'"; 
+        $condition = "idproduct = " . $product->idproduct; 
         $table = "product";
         $this->connection->update($attributes, $table, $condition);
     }
+    /*
+    * Inserta un elemento de galería
+    */
+    public function insertProductData($product){
+        $attributes = "null, '". $product->namein . "','". $product->namees ."','".$product->descriptiones.
+                "','".$product->descriptionin."','".$product->image."'";
+        $table = "product";
+        $this->connection->insert($attributes,$table);
+    }
+    
+    /*
+     * Elimina un elemento
+     */
+    public function deleteProductData($product){
+        $condition = "idproduct = " . $product;
+        $this->connection->delete("product", $condition);
+    }
+    
+    
 }

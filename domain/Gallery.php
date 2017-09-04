@@ -4,15 +4,15 @@ class Gallery {
     
     //atributos
     public $idgallery;
-    public $description;
     public $image;
-    public $language;
+    public $descriptionEs;
+    public $descriptionIn;
     
-    function __construct($idgallery, $description, $image, $language) {
+    function __construct($idgallery, $image, $descriptionEs, $descriptionIn) {
         $this->idgallery = $idgallery;
-        $this->description = $description;
         $this->image = $image;
-        $this->language = $language;
+        $this->descriptionEs = $descriptionEs;
+        $this->descriptionIn = $descriptionIn;
     }
 
 }

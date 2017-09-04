@@ -36,9 +36,7 @@
                   <div class="page-title-content">
                     <div class="shell">
                       <p class="page-title-header"><?=$text["TituloPrincipal"]?></p>
-                      <div class="unit unit-spacimg-md unit-xs-horizontal unit-align-center unit-middle">
-                        <div class="unit-body"><a href="#" class="btn btn-sm btn-circle btn-primary"><?=$text["btnNuevoComment"]?></a></div>
-                      </div>
+                     
                     </div>
                   </div>
                 </div>
@@ -52,8 +50,36 @@
                         </div>
                       </div>
                       <div class="cell-xs-12">
+                          <?php 
+                            if ( ! session_id() ) @ session_start();
+                            if(isset($_SESSION["id"])){ 
+                          ?>
+                            <blockquote class="quote-review"  style="background-color: #c0a16b">
+                                <form  enctype="multipart/form-data" method="POST" action="./actionComment?action=insert">
+                                    <input hidden type="text" name="iduser" value="<?=$_SESSION["id"]?>">
+                                   <div class="quote-fullwidth-body">
+                                       <div class="range range-sm-bottom range-15">
+                                      <div class="cell-sm-12">
+                                           <div class="form-group">
+                                               <label class="form-label-outside">Comentario *</label>
+                                               <textarea name="comment" required class="form-control"></textarea>
+                                           </div>
+                                      </div>
+                                      <div class="range range-sm-bottom range-15">
+                                          <div class="cell-sm-6">
+                                            <div class="form-group">
+                                              <button type="submit" name="button1id" class="btn btn-sm btn-default-size btn-success btn-circle">Comentar</button>
+                                            </div>
+                                          </div>
+
+                                      </div>
+                                       </div>
+                                   </div>
+                               </form> 
+                           </blockquote> 
+                          <?php } ?>
                         <div data-isotope-layout="moduloColumns" class="row isotope">
-                          
+                                
                              <?php foreach ($listComment as $comment){ ?>
                             
                                 <div class="col-xs-12 col-sm-6 col-md-4 isotope-item">
@@ -82,20 +108,19 @@
                   </div>
                 </section>
 
-                <footer class="page-footer page-footer-default">
-                  <div class="shell">
-                    <div class="range range-xs-center">
-                      <div class="cell-lg-10"><a href="index.html" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a>
-                        
-                       
-                        <div class="divider divider-small divider-light block-centered"></div>
-                        <ul class="inline-list inline-list-md">
-                          <li><a href="#" class="icon icon-xs link-gray-light fa-facebook"></a></li>
-                        </ul>
-                      </div>
+              <footer class="page-footer page-footer-default">
+                <div class="shell">
+                  <div class="range range-xs-center">
+                    <div class="cell-lg-10"><a href="./" class="brand"><img src="public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a>
+
+                      <div class="divider divider-small divider-light block-centered"></div>
+                      <ul class="inline-list inline-list-md">
+                        <h4>Universidad de Costa Rica - Trabajo Comunal 2017 </h4>
+                      </ul>
                     </div>
                   </div>
-                </footer>
+                </div>
+              </footer>
               </div>
               <div id="perspective-content-overlay"></div>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-08-2017 a las 14:22:23
+-- Tiempo de generación: 04-09-2017 a las 14:58:51
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 7.1.7
 
@@ -34,14 +34,6 @@ CREATE TABLE `comment` (
   `userfk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Volcado de datos para la tabla `comment`
---
-
-INSERT INTO `comment` (`idcomment`, `comment`, `userfk`) VALUES
-(1, 'Este es el PRIMER comentario de prueba para el usuario Gustavo', 1),
-(2, 'Este es el SEGUNDO comentario de prueba para el usuario Gustavo', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -50,66 +42,21 @@ INSERT INTO `comment` (`idcomment`, `comment`, `userfk`) VALUES
 
 CREATE TABLE `gallery` (
   `idgallery` int(11) NOT NULL,
-  `image` int(11) NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
-  `language` varchar(30) COLLATE utf8_bin NOT NULL
+  `image` varchar(100) COLLATE utf8_bin NOT NULL,
+  `descriptionEs` text COLLATE utf8_bin NOT NULL,
+  `descriptionIn` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `gallery`
 --
 
-INSERT INTO `gallery` (`idgallery`, `image`, `description`, `language`) VALUES
-(1, 1, 'Esta es la primera imagen en ingles', 'ingles'),
-(2, 2, 'Esta es la segunda imagen en ingles', 'ingles'),
-(3, 3, 'Esta es la tercera imagen en ingles', 'ingles'),
-(4, 4, 'Esta es la cuarta imagen en ingles', 'ingles'),
-(5, 5, 'Esta es la quinta imagen en ingles', 'ingles'),
-(6, 6, 'Esta es la sexta imagen en ingles', 'ingles'),
-(7, 7, 'Esta es la septima imagen en ingles', 'ingles'),
-(8, 1, 'Esta es la primera imagen en español', 'español'),
-(9, 2, 'Esta es la segunda imagen en español', 'español'),
-(10, 3, 'Esta es la tercera imagen en español', 'español'),
-(11, 4, 'Esta es la cuarta imagen en español', 'español'),
-(12, 5, 'Esta es la quinta imagen en español', 'español'),
-(13, 6, 'Esta es la sexta imagen en español', 'español'),
-(14, 7, 'Esta es la septima imagen en español', 'español');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `image`
---
-
-CREATE TABLE `image` (
-  `idimage` int(11) NOT NULL,
-  `path` varchar(100) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Volcado de datos para la tabla `image`
---
-
-INSERT INTO `image` (`idimage`, `path`) VALUES
-(1, 'grid-padding-7-370x220-original.jpg'),
-(2, 'grid-padding-4-370x220-original.jpg'),
-(3, 'grid-padding-2-370x220-original.jpg'),
-(4, 'grid-padding-3-370x220-original.jpg'),
-(5, 'grid-padding-1-370x220-original.jpg'),
-(6, 'grid-padding-5-370x220-original.jpg'),
-(7, 'grid-padding-8-370x220-original.jpg');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `link`
---
-
-CREATE TABLE `link` (
-  `idlink` int(11) NOT NULL,
-  `link` varchar(200) COLLATE utf8_bin NOT NULL,
-  `name` varchar(100) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+INSERT INTO `gallery` (`idgallery`, `image`, `descriptionEs`, `descriptionIn`) VALUES
+(15, 'lobo.jpg', 'descripción 1 español', 'description 1 ingles'),
+(16, 'grid-padding-4-370x220-original.jpg', 'description 2 español3333', 'description 2 ingles'),
+(17, 'grid-padding-2-370x220-original.jpg', 'description 3 español', 'description 3 ingles'),
+(18, 'grid-padding-3-370x220-original.jpg', 'description 4 español', 'description 4 ingles'),
+(20, 'grid-padding-5-370x220-original.jpg', 'description 6 español', 'description 6 ingles');
 
 -- --------------------------------------------------------
 
@@ -134,21 +81,28 @@ CREATE TABLE `organization` (
 --
 
 INSERT INTO `organization` (`idorganization`, `mission`, `vission`, `production`, `socialresponsability`, `history`, `facebook`, `email`, `language`) VALUES
-(1, 'Misión de prueba español', 'Visión de prueba español', 'producción de prueba español', 'Responsabilidad social prueba español', 'Coffee Shop is the place where you can get flavorful coffee strains from global elite brands and roasters at very affordable price.', 'www.facebook.com español', 'tavinchi.com@gmail.com español', 'español'),
-(2, 'mission ingles', 'vission ingles', 'production ingles', 'social responsability ingles', 'Coffee Shop is the place where you can get flavorful coffee strains from global elite brands and roasters at very affordable price.', 'facebook ingles', 'email ingles', 'ingles');
+(1, '66Misión de prueba español', '66Visión de prueba español', '66producción de prueba español.', '66Responsabilidad social prueba español', 'Coffee Shop is the place where you can get flavorful coffee strains from global elite brands and roasters at very affordable price.', '66www.facebook.com español', '6121216tavinchi.com@gmail.com', 'spanish'),
+(2, '77mission ingles', '77vission ingles', '77production ingles', '77social responsability ingles22', 'Coffee Shop is the place where you can get flavorful coffee strains from global 34234324elite brands and roasters at very affordable price.222', '77facebook ingles', '77prueba@gmail.com', 'ingles');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `partner`
+-- Estructura de tabla para la tabla `partners`
 --
 
-CREATE TABLE `partner` (
+CREATE TABLE `partners` (
   `idpartner` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
-  `language` varchar(20) COLLATE utf8_bin NOT NULL
+  `link` varchar(200) COLLATE utf8_bin NOT NULL,
+  `name` varchar(100) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `partners`
+--
+
+INSERT INTO `partners` (`idpartner`, `link`, `name`) VALUES
+(1, 'www.google.com', 'google'),
+(5, 'www.facebook.com', 'facebook');
 
 -- --------------------------------------------------------
 
@@ -158,9 +112,10 @@ CREATE TABLE `partner` (
 
 CREATE TABLE `process` (
   `idprocess` int(11) NOT NULL,
-  `name` varchar(30) COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
-  `language` varchar(20) COLLATE utf8_bin NOT NULL,
+  `namees` varchar(30) COLLATE utf8_bin NOT NULL,
+  `namein` varchar(100) COLLATE utf8_bin NOT NULL,
+  `descriptiones` text COLLATE utf8_bin NOT NULL,
+  `descriptionin` text COLLATE utf8_bin NOT NULL,
   `image` varchar(100) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -168,15 +123,11 @@ CREATE TABLE `process` (
 -- Volcado de datos para la tabla `process`
 --
 
-INSERT INTO `process` (`idprocess`, `name`, `description`, `language`, `image`) VALUES
-(1, 'SELECTED COFFEE BEANS', 'Enjoy the aroma of selected coffee beans available at our shop. ingles', 'ingles', 'icon-service-3-84x84.png'),
-(2, 'ELITE COFFEE', 'Take a sip of Elite Coffee, and revel in the different tastes.ingles', 'ingles', 'icon-service-4-84x84.png'),
-(3, 'SELECTED COFFEE BEANS', 'Enjoy the aroma of selected coffee beans available at our shop. español', 'español', 'icon-service-3-84x84.png'),
-(4, 'ELITE COFFEE', 'Take a sip of Elite Coffee, and revel in the different tastes.español', 'español', 'icon-service-4-84x84.png'),
-(5, 'TASTY COFFEE', 'At Coffee Shop you can find lots of tasty coffee flavors ingles', 'ingles', 'icon-service-1-84x84.png'),
-(6, 'TASTY COFFEE', 'At Coffee Shop you can find lots of tasty coffee flavors español', 'español', 'icon-service-1-84x84.png'),
-(7, 'COOKING COFFEE', 'If you prefer to cook coffee, we have something special for you. ingles', 'ingles', 'icon-service-2-84x84.png'),
-(8, 'COOKING COFFEE', 'If you prefer to cook coffee, we have something special for you. español', 'español', 'icon-service-2-84x84.png');
+INSERT INTO `process` (`idprocess`, `namees`, `namein`, `descriptiones`, `descriptionin`, `image`) VALUES
+(1, 'SELECTED COFFEE BEANS es', 'SELECTED COFFEE BEANS in', 'Enjoy the aroma of selected coffee beans available at our shop. español', 'Enjoy the aroma of selected coffee beans available at our shop. ingles', 'icon-service-3-84x84.png'),
+(4, 'ELITE COFFEE es2', 'ELITE COFFEE in34', 'Take a sip of Elite Coffee, and revel in the different tastes.español', 'Take a sip of Elite Coffee, and revel in the different tastes. in', 'Cama-Tarima2.jpg'),
+(5, 'TASTY COFFEE es', 'TASTY COFFEE in', 'At Coffee Shop you can find lots of tasty coffee flavor español', 'At Coffee Shop you can find lots of tasty coffee flavor ingles', 'icon-service-1-84x84.png'),
+(7, 'COOKING COFFEE español', 'COOKING COFFEE ingles', 'If you prefer to cook coffee, we have something special for you. español', 'If you prefer to cook coffee, we have something special for you. ingles', 'icon-service-2-84x84.png');
 
 -- --------------------------------------------------------
 
@@ -186,23 +137,20 @@ INSERT INTO `process` (`idprocess`, `name`, `description`, `language`, `image`) 
 
 CREATE TABLE `product` (
   `idproduct` int(11) NOT NULL,
-  `nameproduct` varchar(50) COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
-  `image` varchar(50) COLLATE utf8_bin NOT NULL,
-  `language` varchar(30) COLLATE utf8_bin NOT NULL
+  `namein` varchar(50) COLLATE utf8_bin NOT NULL,
+  `namees` varchar(100) COLLATE utf8_bin NOT NULL,
+  `descriptiones` text COLLATE utf8_bin NOT NULL,
+  `descriptionin` text COLLATE utf8_bin NOT NULL,
+  `image` varchar(50) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `product`
 --
 
-INSERT INTO `product` (`idproduct`, `nameproduct`, `description`, `image`, `language`) VALUES
-(1, 'ESPRESSO', 'Desciption of ESPRESSO ingles', 'barbers-1-370x310.jpg', 'ingles'),
-(2, 'CAPPUCCINO', 'Desciption of CAPPUCCINOingles', 'barbers-2-370x310.jpg', 'ingles'),
-(3, 'AMERICANO', 'Description of AMERICANO', 'barbers-3-370x310.jpg', 'ingles'),
-(4, 'ESPRESSO', 'Descripción del expreso en español', 'barbers-1-370x310.jpg', 'español'),
-(5, 'CAPPUCCINO', 'Descripción del café CAPPUCCINO', 'barbers-2-370x310.jpg', 'español'),
-(6, 'AMERICANO', 'Descripción del AMERICANO pero en español', 'barbers-3-370x310.jpg', 'español');
+INSERT INTO `product` (`idproduct`, `namein`, `namees`, `descriptiones`, `descriptionin`, `image`) VALUES
+(2, 'CAPPUCCINO', 'CAPPUCCINO', 'Desciption of CAPPUCCINO es', 'Desciption of CAPPUCCINO in', 'encendedor.jpg'),
+(3, 'AMERICANO', 'AMERICANO', 'Description of AMERICANO es', 'Description of AMERICANO in', 'barbers-3-370x310.jpg');
 
 -- --------------------------------------------------------
 
@@ -224,60 +172,60 @@ CREATE TABLE `textpage` (
 
 INSERT INTO `textpage` (`idtextpage`, `text`, `language`, `keytext`, `page`) VALUES
 (1, 'Descriptive text about the page about us', 'ingles', 'DescripcionPrincipal', 'about'),
-(2, 'About', 'ingles', 'TituloPrincipal', 'about'),
+(2, 'ABOUT', 'ingles', 'TituloPrincipal', 'about'),
 (3, 'Mission', 'ingles', 'mision', 'about'),
 (4, 'Vission', 'ingles', 'vision', 'about'),
 (5, 'Production', 'ingles', 'produccion', 'about'),
 (6, 'Social Responsability', 'ingles', 'responsabilidadSocial', 'about'),
-(7, 'Texto descriptivo sobre la pagina de sobre nosotros pero en español', 'español', 'DescripcionPrincipal', 'about'),
-(8, 'Sobre Nosotros', 'español', 'TituloPrincipal', 'about'),
-(9, 'Misión', 'español', 'mision', 'about'),
-(10, 'Visión', 'español', 'vision', 'about'),
-(11, 'Producción', 'español', 'produccion', 'about'),
-(12, 'Responsabilidad Social', 'español', 'responsabilidadSocial', 'about'),
+(7, 'Texto descriptivo sobre la pagina de sobre nosotros pero en español', 'spanish', 'DescripcionPrincipal', 'about'),
+(8, 'Sobre Nosotros', 'spanish', 'TituloPrincipal', 'about'),
+(9, 'Misión', 'spanish', 'mision', 'about'),
+(10, 'Visión', 'spanish', 'vision', 'about'),
+(11, 'Producción', 'spanish', 'produccion', 'about'),
+(12, 'Responsabilidad Social', 'spanish', 'responsabilidadSocial', 'about'),
 (13, 'PRODUCTS', 'ingles', 'TituloPrincipal', 'products'),
 (14, 'Main description about the product page', 'ingles', 'DescripcionPrincipal', 'products'),
-(15, 'PRODUCTOS', 'español', 'TituloPrincipal', 'products'),
-(16, 'descripción principal sobre la pagina de productos', 'español', 'DescripcionPrincipal', 'products'),
+(15, 'PRODUCTOS', 'spanish', 'TituloPrincipal', 'products'),
+(16, 'descripción principal sobre la pagina de productos', 'spanish', 'DescripcionPrincipal', 'products'),
 (17, 'Testimonials', 'ingles', 'TituloPrincipal', 'comment'),
 (18, 'This is the testimonial page', 'ingles', 'DescripcionPrincipal', 'comment'),
 (19, 'new comment', 'ingles', 'btnNuevoComment', 'comment'),
 (20, 'Similar products', 'ingles', 'productosSimilares', 'detalle'),
-(21, 'Productos similares', 'español', 'productosSimilares', 'detalle'),
+(21, 'Productos similares', 'spanish', 'productosSimilares', 'detalle'),
 (22, 'GALLERY', 'ingles', 'TituloPrincipal', 'gallery'),
-(23, 'GALERÍA', 'español', 'TituloPrincipal', 'gallery'),
+(23, 'GALERÍA', 'spanish', 'TituloPrincipal', 'gallery'),
 (24, 'Café Misión', 'ingles', 'TituloPrincipal', 'index'),
-(25, 'Café Misión', 'español', 'TituloPrincipal', 'index'),
+(25, 'Café Misión', 'spanish', 'TituloPrincipal', 'index'),
 (26, 'History', 'ingles', 'historia', 'index'),
-(27, 'Historia', 'español', 'historia', 'index'),
-(28, 'Procesos del café', 'español', 'procesos', 'index'),
+(27, 'Historia', 'spanish', 'historia', 'index'),
+(28, 'Procesos del café', 'spanish', 'procesos', 'index'),
 (29, 'Coffee processes', 'ingles', 'procesos', 'index'),
-(30, 'Testimonios', 'español', 'testimonios', 'index'),
+(30, 'Testimonios', 'spanish', 'testimonios', 'index'),
 (31, 'Testimonials', 'ingles', 'testimonios', 'index'),
-(32, 'Productos', 'español', 'productos', 'index'),
+(32, 'Productos', 'spanish', 'productos', 'index'),
 (33, 'Products', 'ingles', 'productos', 'index'),
-(34, 'Sobre nosotros', 'español', 'sobreNosotros', 'index'),
+(34, 'Sobre nosotros', 'spanish', 'sobreNosotros', 'index'),
 (35, 'About', 'ingles', 'sobreNosotros', 'index'),
 (36, 'Read more', 'ingles', 'leerMas', 'index'),
-(37, 'Leer mas', 'español', 'leerMas', 'index'),
-(38, 'We provide a variety of services both to our new and regular customers. If you can think of anything connected with coffee, then we can offer it at our Coffee Shop.\r\nespañol', 'español', 'descripcionProcesos', 'index'),
+(37, 'Leer mas', 'spanish', 'leerMas', 'index'),
+(38, 'We provide a variety of services both to our new and regular customers. If you can think of anything connected with coffee, then we can offer it at our Coffee Shop.\r\nespañol', 'spanish', 'descripcionProcesos', 'index'),
 (39, 'We provide a variety of services both to our new and regular customers. If you can think of anything connected with coffee, then we can offer it at our Coffee Shop.\r\ningles', 'ingles', 'descripcionProcesos', 'index'),
 (40, 'Testimonials', 'ingles', 'testimonios', 'index'),
-(41, 'Testimonios', 'español', 'testimonios', 'index'),
+(41, 'Testimonios', 'spanish', 'testimonios', 'index'),
 (42, 'We provide a variety of services both to our new and regular customers. If you can think of anything connected with coffee, then we can offer it at our Coffee Shop.\r\ningles. Ingles', 'ingles', 'descripcionTestimonios', 'index'),
-(43, 'We provide a variety of services both to our new and regular customers. If you can think of anything connected with coffee, then we can offer it at our Coffee Shop.\r\ningles. Español', 'español', 'descripcionTestimonios', 'index'),
+(43, 'We provide a variety of services both to our new and regular customers. If you can think of anything connected with coffee, then we can offer it at our Coffee Shop.\r\ningles. Español', 'spanish', 'descripcionTestimonios', 'index'),
 (44, 'Feel the real taste of coffee with our products. We offer high quality and tasty coffee variations from widely known brands.\r\nIngles', 'ingles', 'descripcionProductos', 'index'),
-(45, 'Feel the real taste of coffee with our products. We offer high quality and tasty coffee variations from widely known brands.\r\nEspañol', 'español', 'descripcionProductos', 'index'),
+(45, 'Feel the real taste of coffee with our products. We offer high quality and tasty coffee variations from widely known brands.\r\nEspañol', 'spanish', 'descripcionProductos', 'index'),
 (46, 'Coffee Shop is not only a place where you can get a hot and tasty coffee. Our team members also write interesting articles on everything concerning coffee.\r\ningles', 'ingles', 'descriSobreNosotros', 'index'),
-(47, 'Coffee Shop is not only a place where you can get a hot and tasty coffee. Our team members also write interesting articles on everything concerning coffee.\r\nespañol', 'español', 'descriSobreNosotros', 'index'),
+(47, 'Coffee Shop is not only a place where you can get a hot and tasty coffee. Our team members also write interesting articles on everything concerning coffee.\r\nespañol', 'spanish', 'descriSobreNosotros', 'index'),
 (48, 'Mission', 'ingles', 'mision', 'index'),
-(49, 'Misión', 'español', 'mision', 'index'),
+(49, 'Misión', 'spanish', 'mision', 'index'),
 (50, 'Vission', 'ingles', 'vision', 'index'),
-(51, 'Visión', 'español', 'vision', 'index'),
+(51, 'Visión', 'spanish', 'vision', 'index'),
 (52, 'Production', 'ingles', 'produccion', 'index'),
-(53, 'Producción', 'español', 'produccion', 'index'),
+(53, 'Producción', 'spanish', 'produccion', 'index'),
 (54, 'Social responsability', 'ingles', 'responsabilidadSocial', 'index'),
-(55, 'Responsabilidad Social', 'español', 'responsabilidadSocial', 'index');
+(55, 'Responsabilidad Social', 'spanish', 'responsabilidadSocial', 'index');
 
 -- --------------------------------------------------------
 
@@ -293,15 +241,16 @@ CREATE TABLE `user` (
   `user` varchar(30) COLLATE utf8_bin NOT NULL,
   `email` varchar(50) COLLATE utf8_bin NOT NULL,
   `password` varchar(50) COLLATE utf8_bin NOT NULL,
-  `image` varchar(100) COLLATE utf8_bin NOT NULL
+  `image` varchar(100) COLLATE utf8_bin NOT NULL,
+  `role` varchar(30) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`iduser`, `name`, `lastname`, `idcard`, `user`, `email`, `password`, `image`) VALUES
-(1, 'Gustavo', 'Nájera', '304900550', 'Gustavo Nájera', 'tavinchi.com@gmial.com', '1234', 'user1.jpg');
+INSERT INTO `user` (`iduser`, `name`, `lastname`, `idcard`, `user`, `email`, `password`, `image`, `role`) VALUES
+(5, 'Administrador', 'administrador', '0', 'admin', 'admin@gmail.com', 'admin', '1.jpg', 'administrador');
 
 --
 -- Índices para tablas volcadas
@@ -318,20 +267,7 @@ ALTER TABLE `comment`
 -- Indices de la tabla `gallery`
 --
 ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`idgallery`),
-  ADD KEY `image` (`image`);
-
---
--- Indices de la tabla `image`
---
-ALTER TABLE `image`
-  ADD PRIMARY KEY (`idimage`);
-
---
--- Indices de la tabla `link`
---
-ALTER TABLE `link`
-  ADD PRIMARY KEY (`idlink`);
+  ADD PRIMARY KEY (`idgallery`);
 
 --
 -- Indices de la tabla `organization`
@@ -340,9 +276,9 @@ ALTER TABLE `organization`
   ADD PRIMARY KEY (`idorganization`);
 
 --
--- Indices de la tabla `partner`
+-- Indices de la tabla `partners`
 --
-ALTER TABLE `partner`
+ALTER TABLE `partners`
   ADD PRIMARY KEY (`idpartner`);
 
 --
@@ -377,42 +313,32 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idcomment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idcomment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `idgallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT de la tabla `image`
---
-ALTER TABLE `image`
-  MODIFY `idimage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT de la tabla `link`
---
-ALTER TABLE `link`
-  MODIFY `idlink` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idgallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `organization`
 --
 ALTER TABLE `organization`
   MODIFY `idorganization` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `partner`
+-- AUTO_INCREMENT de la tabla `partners`
 --
-ALTER TABLE `partner`
-  MODIFY `idpartner` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `partners`
+  MODIFY `idpartner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `process`
 --
 ALTER TABLE `process`
-  MODIFY `idprocess` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idprocess` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `idproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `textpage`
 --
@@ -422,7 +348,7 @@ ALTER TABLE `textpage`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --
@@ -432,12 +358,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`userfk`) REFERENCES `user` (`iduser`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `gallery`
---
-ALTER TABLE `gallery`
-  ADD CONSTRAINT `gallery_ibfk_1` FOREIGN KEY (`image`) REFERENCES `image` (`idimage`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

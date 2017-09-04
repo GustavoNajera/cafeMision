@@ -9,30 +9,39 @@
           <div class="rd-navbar-nav-wrap">
             <div class="rd-navbar-nav-inner">
               <ul class="rd-navbar-nav">
-                <li class="active"><a href="./">Home</a></li>
-                <li><a href="./about">About</a>
+                <li><a href="./">Idioma</a>
+                    <ul class="rd-navbar-dropdown">
+                        <li><a href="./languageClient?filtrado=<?=$ruta?>&&action=es">Español</a></li>
+                       <li><a href="./languageClient?filtrado=<?=$ruta?>&&action=in">Ingles</a></li>
+                   </ul>
+               </li>
+                <li><a href="./about">Sobre Nosotros</a>
                   <ul class="rd-navbar-dropdown">
-                    <li><a href="./testimonials">Testimonials</a>
+                    <li><a href="./testimonials">Testimonios</a>
                     </li>
                   </ul>
                 </li>
                 <li><a href="./products">Productos</a></li>
                 
-                <li><a href="./gallery">Gallery</a></li>
+                <li><a href="./gallery">Gallería</a></li>
                 
-                <li><a href="./contact">Contact Us</a></li>
+                <li><a href="./contact">Contactenos</a></li>
                 
-                <li class="active"><a href="./session">Login</a>
+                <?php 
+                if ( ! session_id() ) @ session_start();
+                if(!isset($_SESSION["id"])){ 
+                ?>
+                <li class="active"><a href="./session">Sesión</a>
                     <ul class="rd-navbar-dropdown">
-                        <li><a href="./SessionLogOut">LogOut</a></li>
+                        <li><a href="./register">Registrar</a></li>
                     </ul>
                 </li>
+                <?php }else{ ?>
+                    <li><a href="./SessionLogOut">Salir</a></li>
+                <?php }?>
               </ul>
             </div>
           </div>
-<!--          <div class="rd-navbar-inner-left">
-            <div class="booking-control"><a href="./shop" class="btn btn-xs btn-circle btn-primary">BUY NOW</a></div>
-          </div>-->
         </div>
       </nav>
     </div>

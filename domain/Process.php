@@ -4,16 +4,20 @@ class Process {
     
     //atributos
     public $idprocess;
-    public $description;
+    public $descriptiones;
+    public $descriptionin;
     public $image;
-    public $language;
-    public $name;
+    public $namees;
+    public $namein;
 
-    function __construct($idprocess, $description, $image, $language, $name) {
+    function __construct($idprocess, $descriptiones, $descriptionin, $image, $namees, $namein) {
         $this->idprocess = $idprocess;
-        $this->description = $description;
+        $this->descriptiones = $descriptiones;
+        $this->descriptionin = $descriptionin;
         $this->image = $image;
-        $this->language = $language;
-        $this->name = $name;
+        $this->namees = $namees;
+        $this->namein = $namein;
     }
+
+
 }

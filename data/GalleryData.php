@@ -13,16 +13,34 @@ class GalleryData {
     /*
      * retorna todas las imagenes de galería
      */
-    public function getAllGalleryData($language) {
-        $condition = "language = '" . $language . "'";
+    public function getAllGalleryData() {
+        $condition = "";
         $result = $this->connection->findAll("*", "gallery",$condition);
         $array = array();
-        while ($image = mysqli_fetch_array($result)){
-            $path = $this->connection->findOne("path","image","idimage = " . $image["image"]);
-            
-            $imageTem = new Gallery($image["idgallery"], $image["description"], $path["path"], $image["language"]);
+        while ($element = mysqli_fetch_array($result)){
+            $imageTem = new Gallery($element["idgallery"], $element["image"], $element["descriptionEs"], $element["descriptionIn"]);
             array_push($array, $imageTem);
         }
         return $array;
+    }
+
+    /*
+     * Actualiza un objeto de galería.
+     */
+    public function updateGalleryData($gallery){
+        $attributes = "descriptionIn = '".$gallery->descriptionIn ."', image = '".$gallery->image . 
+                "',descriptionEs = '".$gallery->descriptionEs . "'";
+        
+        $condition = "idgallery = " . $gallery->idgallery; 
+        $table = "gallery";
+        $this->connection->update($attributes, $table, $condition);
+    }
+    
+    /*
+     * Elimina un elemento
+     */
+    public function deleteGalleryData($gallery){
+        $condition = "idgallery = " . $gallery;
+        $this->connection->delete("gallery", $condition);
     }
 }
