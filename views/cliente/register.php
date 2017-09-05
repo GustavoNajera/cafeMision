@@ -7,11 +7,16 @@
         include_once './business/ProductBusiness.php';
         include_once './business/TextPageBusiness.php';
         
+        if ( ! session_id() ) @ session_start();
+        $language = isset($_SESSION["language"])?$_SESSION["language"] : "ingles";
+        
+        $text = (new TextPageBusiness())->getTextByPageBusiness("register");
+        
         //Se obtiene la ruta de las imágenes
         $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
         $pathTemplate = $pathTem["imgTemplate"];
     ?>
-    <title>Principal Admin</title>
+    <title><?=$text["TituloPrincipal"]?></title>
     
     <body>
         <div class="page">
@@ -31,9 +36,9 @@
                     <div class="shell">
                       <div class="range range-sm-center range-75">
                         <div class="cell-xs-12">
-                          <h2>Insertar un nuevo Producto</h2>
+                          <h2><?=$text["TituloPrincipal"]?></h2>
                           <div class="p text-width-medium">
-                            <h3>Asegurese de no dejar ningún campo sin texto.</h3>
+                            <h3><?=$text["Descripcion"]?></h3>
                           </div>
                         </div>
                         <div class="cell-lg-10">
@@ -46,26 +51,26 @@
                                         <div class="range range-sm-bottom range-15">
                                         <div class="cell-sm-6">
                                             <div class="form-group">
-                                                <label class="form-label-outside">Correo Electrónico *</label>
+                                                <label class="form-label-outside"><?=$text["TituloCorreo"]?> *</label>
                                                 <input type="email" name="email" required class="form-control">
                                             </div>
                                           </div>
                                             <div class="cell-sm-6">
                                             <div class="form-group">
-                                                <label class="form-label-outside">Carnet *</label>
+                                                <label class="form-label-outside"><?=$text["TituloCarne"]?> *</label>
                                                 <input type="text" name="idcard" required class="form-control">
                                             </div>
                                           </div>  
                                             
                                         <div class="cell-sm-6">
                                             <div class="form-group">
-                                              <label class="form-label-outside">Nombre *</label>
+                                              <label class="form-label-outside"><?=$text["TituloName"]?> *</label>
                                               <input type="text" name="name" required class="form-control">
                                             </div>
                                         </div>
                                         <div class="cell-sm-6">
                                             <div class="form-group">
-                                              <label class="form-label-outside">Apellido *</label>
+                                              <label class="form-label-outside"><?=$text["TituloApellido"]?> *</label>
                                               <input type="text" name="lastname" required class="form-control">
                                             </div>
                                         </div>
@@ -73,13 +78,13 @@
                                             
                                         <div class="cell-sm-6">
                                             <div class="form-group">
-                                              <label class="form-label-outside">Contraseña *</label>
+                                              <label class="form-label-outside"><?=$text["TituloContrasena"]?> *</label>
                                               <input type="password" name="password" required class="form-control">
                                             </div>
                                         </div>
                                         <div class="cell-sm-6">
                                             <div class="form-group">
-                                              <label class="form-label-outside">Usuario *</label>
+                                              <label class="form-label-outside"><?=$text["TituloUsuario"]?> *</label>
                                               <input type="text" name="user" required class="form-control">
                                             </div>
                                         </div>
@@ -87,7 +92,7 @@
                                             <div class="range range-sm-bottom range-15">
                                                 <div class="cell-sm-12">
                                                   <div class="form-group">
-                                                    <label class="form-label-outside">Nueva imagen *</label>
+                                                    <label class="form-label-outside"><?=$text["TituloImagen"]?> *</label>
                                                     <input type="file" class="btn-block" name='image' id="imagen" accept="image/*">
                                                   </div>
                                                 </div>
@@ -96,7 +101,7 @@
                                             <div class="range range-sm-bottom range-15">
                                                 <div class="cell-sm-6">
                                                   <div class="form-group">
-                                                    <button type="submit" name="button1id" class="btn btn-sm btn-default-size btn-success btn-circle">Insertar</button>
+                                                    <button type="submit" name="button1id" class="btn btn-sm btn-default-size btn-success btn-circle"><?=$text["TituloInsertar"]?></button>
                                                   </div>
                                                 </div>
                                                 

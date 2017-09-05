@@ -8,8 +8,10 @@
         //(new SessionBusiness())->logOut();
         if((new SessionBusiness())->getUser()) header("Location: ./admin");
         
-        //Se obtienen los textos en el lenguaje elegido
-        //$text = (new TextPageBusiness())->getTextByPageBusiness("session");
+        if ( ! session_id() ) @ session_start();
+        $language = isset($_SESSION["language"])?$_SESSION["language"] : "ingles";
+        
+        $text = (new TextPageBusiness())->getTextByPageBusiness("sesion");
         
     ?>
     <title>Session</title>
@@ -23,18 +25,18 @@
                 <div class="shell">
                     <div class="range range-sm-center range-50">
                       <div class="cell-md-10 cell-lg-6">
-                        <h3 class="text-center">LogIn</h3>
+                        <h3 class="text-center"><?=$text["TituloPrincipal"]?></h3>
                         <form method="POST" action="./SessionLogIn">
                           <div class="range range-sm-bottom range-15">
                             <div class="cell-sm-6">
                               <div class="form-group">
-                                <label for="billing-first-name" class="form-label-outside">Email / Username *</label>
+                                <label for="billing-first-name" class="form-label-outside"><?=$text["usuario"]?> *</label>
                                 <input id="billing-first-name" type="text" name="user" required class="form-control">
                               </div>
                             </div>
                             <div class="cell-sm-6">
                               <div class="form-group">
-                                <label for="billing-last-name" class="form-label-outside">Password *</label>
+                                <label for="billing-last-name" class="form-label-outside"><?=$text["password"]?> *</label>
                                 <input id="billing-last-name" type="password" name="password" required class="form-control">
                               </div>
                             </div>

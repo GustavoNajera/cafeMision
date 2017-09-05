@@ -16,6 +16,7 @@
                 include_once './business/TextPageBusiness.php';
                 include_once './business/CommentBusiness.php';
                 include_once './business/ProductBusiness.php';
+                include_once './business/PartnerBusiness.php';
                 
                 $organization = (new OrganizationBusiness())->getOrganizationBusiness();
                 $listProcess = (new ProcessBusiness())->getAllprocessBusiness();
@@ -31,6 +32,9 @@
                 $pathProduct = $pathTem["imgProduct"];
                 $pathUser = $pathTem["imgUser"];
                 $pathProcess = $pathTem["imgProcess"];
+                
+                $partnerBusiness = new PartnerBusiness();
+                $listPartner =  $partnerBusiness->getAllPartenrBusiness();
                 
             ?>
             
@@ -258,6 +262,34 @@
                                         
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+            
+            <section style="background-image: url(public/images/bg-image-1.jpg);" class="section-xl bg-gray-dark bg-image text-center">
+            <div class="shell">
+              <div class="range range-50">
+                <div class="cell-xs-12">
+                  <h2><?=$text["socios"]?></h2>
+                  <div class="p text-width-medium">
+                    <p class="big"><?=$text["descripcionSocios"]?></p>
+                  </div>
+                </div>
+                <div class="cell-xs-12">
+                  <div class="range range-30">
+                    
+                      
+                      
+                    <?php foreach ($listPartner as $partner){?>
+                        <div class="cell-sm-6 cell-md-4 height-fill">
+                            <marquee><h3><a href="<?=$partner->link?>"><?=$partner->name?></a></h3></marquee>
+                        </div>
+                    <?php }?>
+                      
+                    
+                  </div>
+                </div>
+                <div class="cell-xs-12"><a href="./products" class="btn btn-sm btn-style-1 btn-primary"><?=$text["leerMas"]?></a></div>
               </div>
             </div>
           </section>

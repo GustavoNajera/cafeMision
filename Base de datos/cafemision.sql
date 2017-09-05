@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-09-2017 a las 14:58:51
+-- Tiempo de generación: 05-09-2017 a las 13:13:41
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 7.1.7
 
@@ -225,7 +225,37 @@ INSERT INTO `textpage` (`idtextpage`, `text`, `language`, `keytext`, `page`) VAL
 (52, 'Production', 'ingles', 'produccion', 'index'),
 (53, 'Producción', 'spanish', 'produccion', 'index'),
 (54, 'Social responsability', 'ingles', 'responsabilidadSocial', 'index'),
-(55, 'Responsabilidad Social', 'spanish', 'responsabilidadSocial', 'index');
+(55, 'Responsabilidad Social', 'spanish', 'responsabilidadSocial', 'index'),
+(56, 'Registrar', 'spanish', 'TituloPrincipal', 'register'),
+(57, 'Register', 'ingles', 'TituloPrincipal', 'register'),
+(58, 'Correo', 'spanish', 'TituloCorreo', 'register'),
+(59, 'Email', 'ingles', 'TituloCorreo', 'register'),
+(60, 'Carné', 'spanish', 'TituloCarne', 'register'),
+(61, 'Carné', 'ingles', 'TituloCarne', 'register'),
+(62, 'Nombre', 'spanish', 'TituloName', 'register'),
+(63, 'Name', 'ingles', 'TituloName', 'register'),
+(64, 'Apellido', 'spanish', 'TituloApellido', 'register'),
+(65, 'Lastname', 'ingles', 'TituloApellido', 'register'),
+(66, 'Contraseña', 'spanish', 'TituloContrasena', 'register'),
+(67, 'password', 'ingles', 'TituloContrasena', 'register'),
+(68, 'Usuario', 'spanish', 'TituloUsuario', 'register'),
+(69, 'User', 'ingles', 'TituloUsuario', 'register'),
+(70, 'Imagen', 'spanish', 'TituloImagen', 'register'),
+(71, 'Image', 'ingles', 'TituloImagen', 'register'),
+(72, 'Insertar', 'spanish', 'TituloInsertar', 'register'),
+(73, 'Insert', 'ingles', 'TituloInsertar', 'register'),
+(74, 'Asegúrese de no dejar ningún campo en blanco', 'spanish', 'Descripcion', 'register'),
+(75, '\r\nBe sure not to leave any fields blank', 'ingles', 'Descripcion', 'register'),
+(76, 'Session', 'ingles', 'TituloPrincipal', 'sesion'),
+(77, 'Sesión', 'spanish', 'TituloPrincipal', 'sesion'),
+(78, 'Usuario', 'spanish', 'usuario', 'sesion'),
+(79, 'User', 'ingles', 'usuario', 'sesion'),
+(80, 'contraseña', 'spanish', 'password', 'sesion'),
+(81, 'Password', 'ingles', 'password', 'sesion'),
+(82, 'Socios', 'spanish', 'socios', 'index'),
+(83, 'Partners', 'ingles', 'socios', 'index'),
+(84, 'Los siguientes son socios que colaboran en el desarrollo de nuestras actividades.', 'ingles', 'descripcionSocios', 'index'),
+(85, '\r\nThe following are partners who collaborate in the development of our activities.', 'spanish', 'descripcionSocios', 'index');
 
 -- --------------------------------------------------------
 
@@ -313,12 +343,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idcomment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idcomment` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `idgallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idgallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `organization`
 --
@@ -328,22 +358,22 @@ ALTER TABLE `organization`
 -- AUTO_INCREMENT de la tabla `partners`
 --
 ALTER TABLE `partners`
-  MODIFY `idpartner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idpartner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `process`
 --
 ALTER TABLE `process`
-  MODIFY `idprocess` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idprocess` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `idproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `textpage`
 --
 ALTER TABLE `textpage`
-  MODIFY `idtextpage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `idtextpage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 --
 -- AUTO_INCREMENT de la tabla `user`
 --

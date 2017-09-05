@@ -3,21 +3,67 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/cafeMision/views/admin/adminOrganization.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/index.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/data/Connection.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/views/general/rightMenuAdmin.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/data/GalleryData.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/domain/User.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionLanguage.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/general/topMenu.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/general/rightMenu.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/admin/adminPartner.php</file>
             <file>file:/C:/xampp/htdocs/cafeMision/data/ProductData.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/index.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/data/OrganizationData.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/business/OrganizationBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/products.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/GalleryBusiness.php</file>
             <file>file:/C:/xampp/htdocs/cafeMision/views/admin/adminIndex.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionLogIn.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/config.json</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionPartner.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/UserBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/data/CommentData.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/general/rightMenuAdmin.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionTextPage.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/domain/Comment.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/domain/Partner.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/data/OrganizationData.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/admin/adminTextPage.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/admin/adminProcess.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/CommentBusiness.php</file>
             <file>file:/C:/xampp/htdocs/cafeMision/domain/Organization.php</file>
             <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionProduct.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/config.json</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionOrganization.php</file>
-            <file>file:/C:/xampp/htdocs/cafeMision/business/ProductBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/register.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionProcess.php</file>
             <file>file:/C:/xampp/htdocs/cafeMision/views/admin/adminProduct.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/domain/Product.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionUser.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/admin/adminUser.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/contact.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/detalle.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/data/Connection.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/domain/Process.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/OrganizationBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/admin/adminGallery.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/data/PartnerData.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/ProcessBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/domain/Gallery.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/data/TextPageData.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionOrganization.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/domain/TextPage.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionLogOut.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/data/ProcessData.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/admin/adminOrganization.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/index.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/testimonials.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/TextPageBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/index.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/data/UserData.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/about.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/general/head.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/general/footerAndScript.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionGallery.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/gallery.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/views/cliente/session.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/actions/ActionComment.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/ProductBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/PartnerBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/cafeMision/business/SessionBusiness.php</file>
         </group>
     </open-files>
 </project-private>
