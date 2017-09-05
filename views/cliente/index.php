@@ -282,65 +282,14 @@
                       
                     <?php foreach ($listPartner as $partner){?>
                         <div class="cell-sm-6 cell-md-4 height-fill">
-                            <marquee><h3><a href="<?=$partner->link?>"><?=$partner->name?></a></h3></marquee>
+                            <marquee><h3><a href="#"><?=$partner->name?></a></h3></marquee>
                         </div>
                     <?php }?>
                       
                     
                   </div>
                 </div>
-                <div class="cell-xs-12"><a href="./products" class="btn btn-sm btn-style-1 btn-primary"><?=$text["leerMas"]?></a></div>
-              </div>
-            </div>
-          </section>
-
-          <section class="box-wrap box-wrap-md bg-white">
-            <div class="box-wrap-map">
-              <div data-zoom="14" data-styles="[{&quot;featureType&quot;:&quot;administrative&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:&quot;-100&quot;}]},{&quot;featureType&quot;:&quot;administrative.province&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;landscape&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;lightness&quot;:65},{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;poi&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;lightness&quot;:&quot;50&quot;},{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:&quot;-100&quot;}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;road.arterial&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;lightness&quot;:&quot;30&quot;}]},{&quot;featureType&quot;:&quot;road.local&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;lightness&quot;:&quot;40&quot;}]},{&quot;featureType&quot;:&quot;transit&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#ffff00&quot;},{&quot;lightness&quot;:-25},{&quot;saturation&quot;:-97}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;labels&quot;,&quot;stylers&quot;:[{&quot;lightness&quot;:-25},{&quot;saturation&quot;:-100}]}]" class="rd-google-map rd-google-map__model">
-                <ul class="map_locations"></ul>
-              </div>
-            </div>
-            <div class="box-wrap-content">
-              <div class="shell">
-                <div class="range">
-                  <div class="cell-xs-12">
-                    <div class="box-contacts box-contacts-horizontal box-wrap-content-interactive block-right">
-                      <div class="box-contacts-col">
-                        <div class="box-contacts-block">
-                          <h3>Address</h3>
-                          <address>123 Street W, Seattle WA 99999 United States</address>
-                        </div>
-                        <div class="divider divider-nebula"></div>
-                        <div class="box-contacts-block">
-                          <h3>Opening Hours</h3>
-                          <dl class="box-contacts-terms-list">
-                            <dt>Monday – Friday</dt>
-                            <dd>9am - 6pm</dd>
-                            <dt>Saturday and Sunday</dt>
-                            <dd>10am - 4pm</dd>
-                          </dl>
-                        </div>
-                      </div>
-                      <div class="box-contacts-col box-contacts-right">
-                        <div class="box-contacts-block">
-                          <h3>Get In Touch</h3>
-                          <p>Leave your name and phone number, and we’ll contact you.</p>
-                          <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" class="rd-mailform">
-                            <div class="form-group">
-                              <label for="contact-full-name" class="form-label-outside">Full Name</label>
-                              <input id="contact-full-name" type="text" name="name" data-constraints="@Required" class="form-control">
-                            </div>
-                            <div class="form-group">
-                              <label for="contact-phone" class="form-label-outside">Telephone</label>
-                              <input id="contact-phone" type="text" name="phone" data-constraints="@Required @Numeric" class="form-control">
-                            </div>
-                            <button type="submit" class="btn btn-sm btn-primary btn-block btn-circle">SEND REQUEST</button>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </section>
