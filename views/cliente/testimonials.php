@@ -17,7 +17,7 @@
         $pathUser = $pathTem["imgUser"];
         $pathTemplate = $pathTem["imgTemplate"];
     ?>
-    <title><?=$text["TituloPrincipal"]?></title>
+     <title>Café Misión</title>
     
     <body>
         <div class="page">

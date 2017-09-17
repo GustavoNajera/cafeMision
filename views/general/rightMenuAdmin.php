@@ -7,18 +7,17 @@
         <div class="rd-navbar-brand"><a href="./views/cliente/index.php" class="brand-name"><img src="../../public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
       </div>
       <div class="rd-navbar-nav-wrap">
-        <div class="rd-navbar-nav-inner">
+        <div class="rd-navbar-nav-inner">        
             <ul class="rd-navbar-nav">
-                <li class="active"><a href="./adminUser.php">Mi cuenta</a></li>
-                <li class="active"><a href="./adminOrganization.php?filtrado=<?= $filtrado ?>">Organización</a></li>
+                <li ><a href="./adminUser.php">Mi cuenta</a></li> 
+                <li ><a href="./adminOrganization.php">Organización</a></li>
                 <li><a href="./adminProduct.php">Productos</a></li>
-                <li><a href="./adminGallery.php">Gallery</a></li>
+                <li><a href="./adminGallery.php">Galería</a></li>
                 <li><a href="./adminProcess.php">Procesos </a></li>
                 <li><a href="./adminPartner.php">Socios</a></li>
-                <li class="active"><a href="./adminTextPage.php">Texto de página</a></li>
-                <li><a href="../../business/actions/ActionLogOut.php">LogOut</a></li>
+                <li><a href="./adminTextPage.php">Texto de página</a></li>
+                <li><a href="../../business/actions/ActionLogOut.php">Salir</a></li>
             </ul>
-          
         </div>
       </div>
     </div>

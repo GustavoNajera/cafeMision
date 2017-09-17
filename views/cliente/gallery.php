@@ -20,7 +20,7 @@
         $filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
     ?>
     <title><?=$text["TituloPrincipal"]?></title>
-    <title>Galeria</title>
+     <title>Café Misión</title>
     
     <body>
     <div class="page">

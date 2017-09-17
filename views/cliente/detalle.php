@@ -35,7 +35,7 @@
         $filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
     ?>
     
-    <title><?= $filtrado ?></title>
+     <title>Café Misión</title>
     
     <body>       
         <div class="page">

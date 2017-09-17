@@ -2,7 +2,7 @@
 <html lang="en" class="wide wow-animation">
     <?php include '../general/head.php' ?>
   
-    <title>HOME</title>
+    <title>Café Misión</title>
     
     <body>
         <div class="page">
