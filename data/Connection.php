@@ -37,6 +37,8 @@
                 $condition =  " where " . $condition;
             }
             $query = "SELECT ". $attributes ." FROM " . $table . $condition;
+//            var_dump($query);
+//            exit;
             return mysqli_query($this->link, $query);
        }
        
