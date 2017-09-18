@@ -20,6 +20,10 @@
         $pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
         $pathUser = $pathTem["imgUser"];
         $pathTemplate = $pathTem["imgTemplate"];
+        
+        //Se obtienen los textos en el lenguaje elegido
+        include_once '../../business/TextPageBusiness.php';
+        $text = (new TextPageBusiness())->getTextByPageAdminBusiness("indexAdmin", $filtrado);
     ?>
     <title>Principal Admin</title>
     
@@ -39,9 +43,9 @@
                 <div class="page-title">
                   <div class="page-title-content">
                     <div class="shell">
-                      <p class="page-title-header">Administración</p>
+                      <p class="page-title-header"><?=$text["Titulo zona administrativa"]?></p>
                         <div class="unit unit-spacimg-md unit-xs-horizontal unit-align-center unit-middle">
-                            <p class="large">Mostrar elementos en: </p>
+                            <p class="large"><?=$text["Elegir lenguaje admin"]?></p>
                             
                            <!-- Se especifica el lenguaje que desea administrar. -->
                             <?php if($filtrado != "ingles"){ ?>
@@ -61,10 +65,9 @@
               <div class="shell">
                 <div class="range range-sm-center range-75">
                   <div class="cell-xs-12">
-                    <h2 class="big">Bienvenido a la zona administrativa</h2>
+                    <h2 class="big"><?=$text["Titulo Principal"]?></h2>
                     <div class="p text-width-medium">
-                      <h3 class="big">Para realizar una actualización en el contenido del sistema debe seleccionar 
-                      en el menú (esquina superior derecha) la sección a actualizar.</h3>
+                      <h3 class="big"><?=$text["DescripcionPrincipal"]?></h3>
                     </div>
                   </div>
                 </div>

@@ -38,7 +38,6 @@ $text = (new TextPageBusiness())->getTextByPageBusiness("all");
                         </li>
                         <li><a href="./products.php"><?= $text["item2"] ?></a></li>
                         <li><a href="./gallery.php"><?= $text["item3"] ?></a></li>
-                        <li><a href="./contact.php"><?= $text["item4"] ?> </a></li>
                         <li><a href="./testimonials.php"><?= $text["item5"] ?></a>
                         </li>
                         <?php
