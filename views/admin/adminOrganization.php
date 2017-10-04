@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
-    <?php include 'views/general/head.php' ?>
+    <?php include '../general/head.php'; ?>
     
     <?php
-    
         /*Se verifica que venga especificado el lenguaje, en caso contrario se usa por defecto ingles*/
-        if($filtrado == "") header("Location: ./adminOrganization?filtrado=ingles");
+        $filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
+        if($filtrado == "") header("Location: ./adminOrganization.php?filtrado=ingles");
         
-        include_once './business/OrganizationBusiness.php';
+        include_once '../../business/OrganizationBusiness.php';
         
         //Se obtienen los datos de la organización en el lenguaje especificado
         $organization = (new OrganizationBusiness())->getOrganizationBusinessLan($filtrado);
         
         //Se obtiene la ruta de las imágenes
-        $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+        $pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
         $pathTemplate = $pathTem["imgTemplate"];
     ?>
     <title>Principal Admin</title>
@@ -23,7 +23,7 @@
           <main id="perspective" class="page-content">
             <div class="content-wrapper">
               <div class="page-header page-header-perspective">
-                  <div class="page-header-left"><a href="./admin?filtrado=<?=$filtrado?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
+                  <div class="page-header-left"><a href="./adminIndex.php?filtrado=<?=$filtrado?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
                 <div class="page-header-right">
                   <div id="perspective-open-menu" data-custom-toggle=".perspective-menu-toggle" data-custom-toggle-hide-on-blur="true"><span class="perspective-menu-text">Menu</span>
                     <button class="perspective-menu-toggle"><span></span></button>
@@ -40,11 +40,11 @@
                             
                             <!-- Se especifica el lenguaje que desea administrar. -->
                             <?php if($filtrado != "ingles"){ ?>
-                            <div style="margin: 10px;" class="unit-body"><a href="<?=$ruta?>?filtrado=ingles" class="btn btn-sm btn-circle">Ingles</a></div>
-                                <div class="unit-body"><a href="<?=$ruta?>?filtrado=spanish" class="btn btn-sm btn-circle btn-primary">Español</a></div>
+                            <div style="margin: 10px;" class="unit-body"><a href="./adminOrganization.php?filtrado=ingles" class="btn btn-sm btn-circle">Ingles</a></div>
+                                <div class="unit-body"><a href="./adminOrganization.php?filtrado=spanish" class="btn btn-sm btn-circle btn-primary">Español</a></div>
                             <?php }else {?>
-                                <div style="margin: 10px;" class="unit-body"><a href="<?=$ruta?>?filtrado=ingles" class="btn btn-sm btn-circle  btn-primary">Ingles</a></div>
-                                <div class="unit-body"><a href="<?=$ruta?>?filtrado=spanish" class="btn btn-sm btn-circle">Español</a></div>
+                                <div style="margin: 10px;" class="unit-body"><a href="./adminOrganization.php?filtrado=ingles" class="btn btn-sm btn-circle  btn-primary">Ingles</a></div>
+                                <div class="unit-body"><a href="./adminOrganization.php?filtrado=spanish" class="btn btn-sm btn-circle">Español</a></div>
                             <?php }?>
                                 
                         </div>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="cell-lg-10">
                             
-                            <form method="POST" action="./actionOrganization?filtrado=<?=$filtrado?>&&action=update">
+                            <form method="POST" action="../../business/actions/ActionOrganization.php?filtrado=<?=$filtrado?>&&action=update">
                                 
                                 <!-- Input que almacenan información no visible al usuario -->
                                 <input hidden type="text" name="idorganization" value="<?=$organization->idorganization?>">
@@ -193,7 +193,7 @@
                 <footer class="page-footer page-footer-default">
                   <div class="shell">
                     <div class="range range-xs-center">
-                      <div class="cell-lg-10"><a href="index.html" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a>
+                        <div class="cell-lg-10"><a href="./adminOrganization.php" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a>
                         
                        
                         <div class="divider divider-small divider-light block-centered"></div>
@@ -208,8 +208,7 @@
               <div id="perspective-content-overlay"></div>
             </div>
             
-              
-              <?php include 'views/general/rightMenuAdmin.php'; ?>
+              <?php include_once '../general/rightMenuAdmin.php'; ?>
           </main>
         </div>
         <div id="form-output-global" class="snackbars"></div>
@@ -247,6 +246,6 @@
             </div>
           </div>
         </div>
-        <?php include_once 'views/general/footerAndScript.php';?>
+        <?php include_once '../general/footerAndScript.php';?>
     </body>
 </html>

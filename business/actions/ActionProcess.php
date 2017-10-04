@@ -1,10 +1,11 @@
 <?php
-include_once './business/ProcessBusiness.php';
-include_once './domain/Process.php';
+include_once '../../business/ProcessBusiness.php';
+include_once '../../domain/Process.php';
 $processBusiness =  new ProcessBusiness();
 //Se obtiene la ruta de las imágenes
-$pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+$pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
 $pathProcess = $pathTem["imgProcess"];
+$action = (isset($_GET["action"]))? $_GET["action"] : "";
 
 switch ($action) {
     
@@ -29,7 +30,7 @@ switch ($action) {
                 $image, $_POST["namees"], $_POST["namein"]);
         
         $processBusiness->updateProcessBusiness($processTem);
-        header("Location: ./adminProcess");
+        header("Location: ../../views/admin/adminProcess.php");
         break;
         
      /*
@@ -52,7 +53,7 @@ switch ($action) {
                 $image, $_POST["namees"], $_POST["namein"]);
         
         $processBusiness->insertProcessBusiness($processTem);
-        header("Location: ./adminProcess");
+        header("Location: ../../views/admin/adminProcess.php");
         break;
         
     /*
@@ -61,7 +62,7 @@ switch ($action) {
     case "delete":
         $processBusiness->deleteProcessBusiness($_GET["idprocess"]);
         unlink($pathProcess . $_GET["image"]);//Eliminar imagen original
-        header("Location: ./adminProcess");
+        header("Location: ../../views/admin/adminProcess.php");
         break;
         
         
@@ -70,5 +71,5 @@ switch ($action) {
      */
     
     default:
-       header("Location: ./adminProcess");
+       header("Location: ../../views/admin/adminProcess.php");
 }

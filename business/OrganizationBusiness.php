@@ -1,6 +1,6 @@
 <?php
 
-include_once './data/OrganizationData.php';
+include_once '../../data/OrganizationData.php';
 
 class OrganizationBusiness extends OrganizationData{
     

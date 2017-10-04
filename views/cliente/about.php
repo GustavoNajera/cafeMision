@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
-    <?php include 'views/general/head.php' ?>
+    <?php include '../general/head.php' ?>
     
     <?php
         //Se obtiene la información de la empresa
-        include_once './business/OrganizationBusiness.php';
-        include_once './business/TextPageBusiness.php';
+        include_once '../../business/OrganizationBusiness.php';
+        include_once '../../business/TextPageBusiness.php';
         $organization = (new OrganizationBusiness())->getOrganizationBusiness();
         
         //Se obtienen los textos en el lenguaje elegido
         $text = (new TextPageBusiness())->getTextByPageBusiness("about");
         
         //Se obtiene la ruta de las imágenes
-        $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+        $pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
         $pathAbout = $pathTem["imgAbout"];
+        
+        $filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
     ?>
     <title><?=$text["TituloPrincipal"]?></title>
     
@@ -107,10 +109,10 @@
               <div id="perspective-content-overlay"></div>
             </div>
             <!-- RD Navbar-->
-            <?php include 'views/general/rightMenu.php' ?>
+            <?php include '../general/rightMenu.php' ?>
           </main>
         </div>
         
-        <?php include_once 'views/general/footerAndScript.php';?>
+        <?php include_once '../general/footerAndScript.php';?>
     </body>
 </html>

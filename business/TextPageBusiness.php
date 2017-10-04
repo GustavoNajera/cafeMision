@@ -1,6 +1,6 @@
 <?php
 
-include_once './data/TextPageData.php';
+include_once '../../data/TextPageData.php';
 
 class TextPageBusiness extends TextPageData{
     

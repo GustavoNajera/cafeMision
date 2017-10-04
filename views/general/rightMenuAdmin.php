@@ -4,19 +4,19 @@
     <div class="rd-navbar-inner">
       <div class="rd-navbar-panel">
         <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
-        <div class="rd-navbar-brand"><a href="./" class="brand-name"><img src="public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
+        <div class="rd-navbar-brand"><a href="./views/cliente/index.php" class="brand-name"><img src="../../public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
       </div>
       <div class="rd-navbar-nav-wrap">
         <div class="rd-navbar-nav-inner">
             <ul class="rd-navbar-nav">
-                <li class="active"><a href="./adminUser">Mi cuenta</a></li>
-                <li class="active"><a href="./adminOrganization?filtrado=<?=$filtrado?>">Organización</a></li>
-                <li><a href="./adminProduct">Productos</a></li>
-                <li><a href="./adminGallery">Gallery</a></li>
-                <li><a href="./adminProcess">Procesos </a></li>
-                <li><a href="./adminPartner">Socios</a></li>
-                <li class="active"><a href="./adminTextPage">Texto de página</a></li>
-                <li><a href="./SessionLogOut">LogOut</a></li>
+                <li class="active"><a href="./adminUser.php">Mi cuenta</a></li>
+                <li class="active"><a href="./adminOrganization.php?filtrado=<?= $filtrado ?>">Organización</a></li>
+                <li><a href="./adminProduct.php">Productos</a></li>
+                <li><a href="./adminGallery.php">Gallery</a></li>
+                <li><a href="./adminProcess.php">Procesos </a></li>
+                <li><a href="./adminPartner.php">Socios</a></li>
+                <li class="active"><a href="./adminTextPage.php">Texto de página</a></li>
+                <li><a href="../../business/actions/ActionLogOut.php">LogOut</a></li>
             </ul>
           
         </div>

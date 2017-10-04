@@ -7,7 +7,7 @@
        public $link;
        function __construct() {
             //Se obtienen las credenciales de la conección desde el archivo config.json
-            $credenciales = json_decode(file_get_contents("./config.json"),true)["BD"];
+            $credenciales = json_decode(file_get_contents("../../config.json"),true)["BD"];
             
             //Se hace la conección
             $link = mysqli_connect($credenciales['server'], $credenciales['user'], $credenciales['password'],$credenciales['db']);

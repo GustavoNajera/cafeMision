@@ -6,12 +6,12 @@
         "db" : "cafemision"
     },
     "IMG": {
-        "imgHome" : "./public/images/",
-        "imgProduct" : "./public/images/",
-        "imgGallery" : "./public/images/",
-        "imgAbout" : "./public/images/",
-        "imgTemplate" : "./public/images/",
-        "imgUser" : "./public/images/user/",
-        "imgProcess" : "./public/images/"
+        "imgHome" : "../../public/images/",
+        "imgProduct" : "../../public/images/",
+        "imgGallery" : "../../public/images/",
+        "imgAbout" : "../../public/images/",
+        "imgTemplate" : "../../public/images/",
+        "imgUser" : "../../public/images/user/",
+        "imgProcess" : "../../public/images/"
     }
 }

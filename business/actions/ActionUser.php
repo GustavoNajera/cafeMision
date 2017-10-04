@@ -1,10 +1,12 @@
 <?php
-include_once './business/UserBusiness.php';
-include_once './domain/User.php';
+include_once '../UserBusiness.php';
+include_once '../../domain/User.php';
 $userBusiness = new UserBusiness();
 //Se obtiene la ruta de las imágenes
-$pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+$pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
 $pathUser = $pathTem["imgUser"];
+
+$action = (isset($_GET["action"]))? $_GET["action"] : "";
 
 switch ($action) {
     
@@ -28,7 +30,7 @@ switch ($action) {
                 $_POST["lastname"], $_POST["name"], $_POST["password"], $_POST["user"], $_POST["role"]);
         
         $userBusiness->updateUserBusiness($user);
-        header("Location: ./adminUser");
+        header("Location: ../../views/admin/adminUser.php");
         break;
         
     /*
@@ -50,7 +52,7 @@ switch ($action) {
                 $_POST["lastname"], $_POST["name"], $_POST["password"], $_POST["user"], "empleado");
         
         $userBusiness->insertUserBusiness($user);
-        header("Location: ./SessionLogIn");
+        header("Location: ../../business/actions/ActionLogIn.php");
         break;
         
     /*
@@ -58,5 +60,5 @@ switch ($action) {
      */
     
     default:
-       header("Location: ./SessionLogIn");
+       header("Location: ../../views/cliente/session.php");
 }

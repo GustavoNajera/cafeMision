@@ -1,6 +1,6 @@
 <?php
 
-include_once './data/UserData.php';
+include_once '../../data/UserData.php';
 
 class UserBusiness extends UserData{
     

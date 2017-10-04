@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
-    <?php include 'views/general/head.php' ?>
+    <?php include '../general/head.php' ?>
     
     <?php
         
-        include_once './business/UserBusiness.php';
-        include_once './business/TextPageBusiness.php';
+        include_once '../../business/UserBusiness.php';
+        include_once '../../business/TextPageBusiness.php';
         
         //Se obtiene el usuario que ha iniciado sesión
         $user = (new UserBusiness())->getUserByIdBusiness();
         
         //Se obtiene la ruta de las imágenes
-        $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+        $pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
         $pathTemplate = $pathTem["imgTemplate"];
         $pathUser = $pathTem["imgUser"];
+        
+        $filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
     ?>
     <title>Principal Admin</title>
     
@@ -22,7 +24,7 @@
           <main id="perspective" class="page-content">
             <div class="content-wrapper">
               <div class="page-header page-header-perspective">
-                  <div class="page-header-left"><a href="./admin?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
+                  <div class="page-header-left"><a href="./adminIndex.php?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
                 <div class="page-header-right">
                   <div id="perspective-open-menu" data-custom-toggle=".perspective-menu-toggle" data-custom-toggle-hide-on-blur="true"><span class="perspective-menu-text">Menu</span>
                     <button class="perspective-menu-toggle"><span></span></button>
@@ -50,7 +52,7 @@
                         <div class="cell-lg-10">
                           
                             <blockquote class="quote-review">
-                                 <form  enctype="multipart/form-data" method="POST" action="./actionUser?action=update">
+                                <form  enctype="multipart/form-data" method="POST" action="../../business/actions/ActionUser.php?action=update">
                                     <!-- Input para almacenar información no visible al usuario -->
                                     <input hidden type="text" name="iduser" value="<?=$user->iduser?>">
                                     <input hidden type="text" name="imageOriginal" value="<?=$user->image?>">
@@ -131,7 +133,7 @@
                 <footer class="page-footer page-footer-default">
                   <div class="shell">
                     <div class="range range-xs-center">
-                      <div class="cell-lg-10"><a href="./admin" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a>
+                      <div class="cell-lg-10"><a href="./adminIndex.php" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a>
                         
                        
                         <div class="divider divider-small divider-light block-centered"></div>
@@ -147,7 +149,7 @@
             </div>
             
               
-              <?php include 'views/general/rightMenuAdmin.php'; ?>
+              <?php include '../general/rightMenuAdmin.php'; ?>
           </main>
         </div>
         <div id="form-output-global" class="snackbars"></div>
@@ -185,6 +187,6 @@
             </div>
           </div>
         </div>
-        <?php include_once 'views/general/footerAndScript.php';?>
+        <?php include_once '../general/footerAndScript.php';?>
     </body>
 </html>

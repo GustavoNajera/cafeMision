@@ -1,7 +1,7 @@
 <?php
 
-include_once './domain/User.php';
-include_once './data/Connection.php';
+include_once '../../domain/User.php';
+include_once '../../data/Connection.php';
 
 class UserData {
     

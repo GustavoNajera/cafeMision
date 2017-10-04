@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
-    <?php include 'views/general/head.php' ?>
+    <?php include '../general/head.php' ?>
     
     <?php
         
-        include_once './business/ProductBusiness.php';
-        include_once './business/TextPageBusiness.php';
+        include_once '../../business/ProductBusiness.php';
+        include_once '../../business/TextPageBusiness.php';
         
         if ( ! session_id() ) @ session_start();
         $language = isset($_SESSION["language"])?$_SESSION["language"] : "ingles";
@@ -13,8 +13,10 @@
         $text = (new TextPageBusiness())->getTextByPageBusiness("register");
         
         //Se obtiene la ruta de las imágenes
-        $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+        $pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
         $pathTemplate = $pathTem["imgTemplate"];
+        
+        $filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
     ?>
     <title><?=$text["TituloPrincipal"]?></title>
     
@@ -45,7 +47,7 @@
                           
                             
                         <blockquote class="quote-review"  style="background-color: #c0a16b">
-                                 <form  enctype="multipart/form-data" method="POST" action="./actionUser?action=insert">
+                            <form  enctype="multipart/form-data" method="POST" action="../../business/actions/ActionUser.php?action=insert">
                                     
                                     <div class="quote-fullwidth-body">
                                         <div class="range range-sm-bottom range-15">
@@ -119,7 +121,7 @@
                             <footer class="page-footer page-footer-default">
                 <div class="shell">
                   <div class="range range-xs-center">
-                    <div class="cell-lg-10"><a href="./" class="brand"><img src="public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a>
+                    <div class="cell-lg-10"><a href="./" class="brand"><img src="../../public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a>
 
                       <div class="divider divider-small divider-light block-centered"></div>
                       <ul class="inline-list inline-list-md">
@@ -134,7 +136,7 @@
             </div>
             
               
-              <?php include 'views/general/rightMenu.php'; ?>
+              <?php include '..//general/rightMenu.php'; ?>
           </main>
         </div>
         <div id="form-output-global" class="snackbars"></div>
@@ -172,6 +174,6 @@
             </div>
           </div>
         </div>
-        <?php include_once 'views/general/footerAndScript.php';?>
+        <?php include_once '../general/footerAndScript.php';?>
     </body>
 </html>

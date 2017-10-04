@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
-    <?php include 'views/general/head.php' ?>
+    <?php include '../general/head.php' ?>
     
     <?php
     
         /*Se verifica que venga especificado el lenguaje, en caso contrario se usa por defecto ingles*/
-        if($filtrado == "") header("Location: ./admin?filtrado=ingles");
-        include_once './business/CommentBusiness.php';
-        include_once './business/TextPageBusiness.php';
+        $filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
+        if($filtrado == "") header("Location: ./adminIndex.php?filtrado=ingles");
+        include_once '../../business/CommentBusiness.php';
+        include_once '../../business/TextPageBusiness.php';
         
         //Se obtienen los comentarios
         $listComment = (new CommentBusiness())->getAllCommentBusiness();
@@ -16,7 +17,7 @@
         $text = (new TextPageBusiness())->getTextByPageBusiness("comment");
         
         //Se obtiene la ruta de las imágenes
-        $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+        $pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
         $pathUser = $pathTem["imgUser"];
         $pathTemplate = $pathTem["imgTemplate"];
     ?>
@@ -27,7 +28,7 @@
           <main id="perspective" class="page-content">
             <div class="content-wrapper">
               <div class="page-header page-header-perspective">
-                  <div class="page-header-left"><a href="./admin?filtrado=<?=$filtrado?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
+                  <div class="page-header-left"><a href="./adminIndex.php?filtrado=<?=$filtrado?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
                 <div class="page-header-right">
                   <div id="perspective-open-menu" data-custom-toggle=".perspective-menu-toggle" data-custom-toggle-hide-on-blur="true"><span class="perspective-menu-text">Menu</span>
                     <button class="perspective-menu-toggle"><span></span></button>
@@ -44,11 +45,11 @@
                             
                            <!-- Se especifica el lenguaje que desea administrar. -->
                             <?php if($filtrado != "ingles"){ ?>
-                            <div style="margin: 10px;" class="unit-body"><a href="<?=$ruta?>?filtrado=ingles" class="btn btn-sm btn-circle">Ingles</a></div>
-                                <div class="unit-body"><a href="<?=$ruta?>?filtrado=spanish" class="btn btn-sm btn-circle btn-primary">Español</a></div>
+                            <div style="margin: 10px;" class="unit-body"><a href="./adminIndex.php?filtrado=ingles" class="btn btn-sm btn-circle">Ingles</a></div>
+                            <div class="unit-body"><a href="./adminIndex.php?filtrado=spanish" class="btn btn-sm btn-circle btn-primary">Español</a></div>
                             <?php }else {?>
-                                <div style="margin: 10px;" class="unit-body"><a href="<?=$ruta?>?filtrado=ingles" class="btn btn-sm btn-circle  btn-primary">Ingles</a></div>
-                                <div class="unit-body"><a href="<?=$ruta?>?filtrado=spanish" class="btn btn-sm btn-circle">Español</a></div>
+                                <div style="margin: 10px;" class="unit-body"><a href="./adminIndex.php?filtrado=ingles" class="btn btn-sm btn-circle  btn-primary">Ingles</a></div>
+                                <div class="unit-body"><a href="./adminIndex.php?filtrado=spanish" class="btn btn-sm btn-circle">Español</a></div>
                             <?php }?>
                                 
                         </div>
@@ -89,7 +90,7 @@
             </div>
             
               
-              <?php include 'views/general/rightMenuAdmin.php'; ?>
+              <?php include '../general/rightMenuAdmin.php'; ?>
           </main>
         </div>
         <div id="form-output-global" class="snackbars"></div>
@@ -127,6 +128,6 @@
             </div>
           </div>
         </div>
-        <?php include_once 'views/general/footerAndScript.php';?>
+        <?php include_once '../general/footerAndScript.php';?>
     </body>
 </html>

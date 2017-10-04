@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
-    <?php include 'views/general/head.php' ?>
+    <?php include '../general/head.php' ?>
     
     <?php
         //Se obtiene la información de la empresa
-        include_once './business/ProductBusiness.php';
-        include_once './business/TextPageBusiness.php';
+        include_once '../../business/ProductBusiness.php';
+        include_once '../../business/TextPageBusiness.php';
         $listProduct = (new ProductBusiness)->getAllproductBusiness();
         
         if ( ! session_id() ) @ session_start();
@@ -14,8 +14,10 @@
         $text = (new TextPageBusiness())->getTextByPageBusiness("products");
         
         //Se obtiene la ruta de las imágenes
-        $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+        $pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
         $pathProduct = $pathTem["imgProduct"];
+        
+        $filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
     ?>
     <title><?=$text["TituloPrincipal"]?></title>
     
@@ -51,7 +53,7 @@
                                 ?>
                                 <div class="cell-sm-6 cell-md-4 height-fill">
                                   <div class="thumbnail-card"><img src="<?=($pathProduct.$product->image)?>" alt="" width="370" height="310" class="thumbnail-card-image"/>
-                                      <div class="thumbnail-card-body"><a href="./product?filtrado=<?=$name?>" class="thumbnail-card-header"><?=$name?></a>
+                                      <div class="thumbnail-card-body"><a href="./detalle.php?filtrado=<?=$name?>" class="thumbnail-card-header"><?=$name?></a>
                                       <div class="thumbnail-card-text">
                                         <p><?=$description?></p>
                                       </div>
@@ -70,7 +72,7 @@
                            <footer class="page-footer page-footer-default">
                 <div class="shell">
                   <div class="range range-xs-center">
-                    <div class="cell-lg-10"><a href="./" class="brand"><img src="public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a>
+                    <div class="cell-lg-10"><a href="./" class="brand"><img src="../../public/images/logo-white-185x41.png" alt="" width="185" height="41"/></a>
 
                       <div class="divider divider-small divider-light block-centered"></div>
                       <ul class="inline-list inline-list-md">
@@ -84,10 +86,10 @@
               <div id="perspective-content-overlay"></div>
             </div>
             <!-- RD Navbar-->
-            <?php include 'views/general/rightMenu.php' ?>
+            <?php include '../general/rightMenu.php' ?>
           </main>
         </div>
         
-        <?php include_once 'views/general/footerAndScript.php';?>
+        <?php include_once '../general/footerAndScript.php';?>
     </body>
 </html>

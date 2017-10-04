@@ -1,5 +1,9 @@
 <?php
 
+//Datos recibidos
+$action = (isset($_GET["action"]))? $_GET["action"] : "";
+$filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
+
 switch ($action) {
     
     /*
@@ -8,7 +12,7 @@ switch ($action) {
     case "es":
         if ( ! session_id() ) @ session_start();
         $_SESSION["language"] = "spanish";
-        header("Location: ./". $filtrado);
+        header("Location: ../../views/cliente/index.php");
         break;
     
     /*
@@ -17,12 +21,12 @@ switch ($action) {
     case "in":
         if ( ! session_id() ) @ session_start();
         $_SESSION["language"] = "ingles";
-        header("Location: ./". $filtrado);
+        header("Location: ../../views/cliente/index.php");
         break;
        
     /*
      * En caso de que no se defina una acción se selecciona el ingles
      */
     default:
-       header("Location: ./");
+       header("Location: ../../views/cliente/index.php");
 }

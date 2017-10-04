@@ -1,6 +1,6 @@
 <?php
 
-include_once './data/GalleryData.php';
+include_once '../../data/GalleryData.php';
 
 class GalleryBusiness extends GalleryData{
     

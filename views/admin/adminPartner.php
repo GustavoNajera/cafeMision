@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
-    <?php include 'views/general/head.php' ?>
+    <?php include '../general/head.php' ?>
     
     <?php
         
-        include_once './business/PartnerBusiness.php';
+        include_once '../../business/PartnerBusiness.php';
         
         //Se obtienen los socios
         $listPartner = (new PartnerBusiness())->getAllPartenrBusiness();
         
         //Se obtiene la ruta de las imágenes
-        $pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+        $pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
         $pathTemplate = $pathTem["imgTemplate"];
+        $filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
     ?>
     <title>Principal Admin</title>
     
@@ -20,7 +21,7 @@
           <main id="perspective" class="page-content">
             <div class="content-wrapper">
               <div class="page-header page-header-perspective">
-                  <div class="page-header-left"><a href="./admin?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
+                  <div class="page-header-left"><a href="./adminIndex.php?>" class="brand"><img src="<?=$pathTemplate?>logo-white-185x41.png" alt="" width="185" height="41"/></a></div>
                 <div class="page-header-right">
                   <div id="perspective-open-menu" data-custom-toggle=".perspective-menu-toggle" data-custom-toggle-hide-on-blur="true"><span class="perspective-menu-text">Menu</span>
                     <button class="perspective-menu-toggle"><span></span></button>
@@ -52,7 +53,7 @@
                         <!-- Insertar un socio -->
                         <blockquote class="quote-review" style="background-color: #c0a16b">
                             
-                                 <form  enctype="multipart/form-data" method="POST" action="./actionPartner?action=insert">
+                            <form  enctype="multipart/form-data" method="POST" action="../../business/actions/ActionPartner.php?action=insert">
                                      
                                     <div class="quote-fullwidth-body">
                                         <div class="range range-sm-bottom range-15">
@@ -90,7 +91,7 @@
                         <?php foreach ($listPartner as $partner){?>
                            
                             <blockquote class="quote-review">
-                                 <form  enctype="multipart/form-data" method="POST" action="./actionPartner?action=update">
+                                <form  enctype="multipart/form-data" method="POST" action="../../business/actions/ActionPartner.php?action=update">
                                     <!-- Input para almacenar información no visible al usuario -->
                                     <input hidden type="text" name="idpartner" value="<?=$partner->idpartner?>">
                                      
@@ -117,7 +118,7 @@
                                                 </div>
                                                 <div class="cell-sm-6">
                                                   <div class="form-group">
-                                                      <a href="./actionPartner?action=delete&&idpartner=<?=$partner->idpartner?>" class="btn btn-sm btn-default-size btn-danger btn-circle">Eliminar</a>
+                                                      <a href="../../business/actions/ActionPartner.php?action=delete&&idpartner=<?=$partner->idpartner?>" class="btn btn-sm btn-default-size btn-danger btn-circle">Eliminar</a>
                                                   </div>
                                                 </div>
 
@@ -152,7 +153,7 @@
             </div>
             
               
-              <?php include 'views/general/rightMenuAdmin.php'; ?>
+              <?php include '../general/rightMenuAdmin.php'; ?>
           </main>
         </div>
         <div id="form-output-global" class="snackbars"></div>
@@ -190,6 +191,6 @@
             </div>
           </div>
         </div>
-        <?php include_once 'views/general/footerAndScript.php';?>
+        <?php include_once '../general/footerAndScript.php';?>
     </body>
 </html>

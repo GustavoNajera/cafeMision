@@ -1,5 +1,5 @@
 <?php  
-include_once './Data/UserData.php';
+include_once '../../Data/UserData.php';
 
 class SessionBusiness{
     
@@ -19,13 +19,13 @@ class SessionBusiness{
             $_SESSION["language"] = "ingles";
             
             if($userResult->role == "administrador"){
-                header("Location: ./admin");
+                header("Location: ../../views/admin/adminIndex.php");
             }else{
-                header("Location: ./");
+                header("Location: ../../views/cliente/index.php");
             }
         }
         else{
-            header("Location: ./session");
+            header("Location: ../../views/cliente/session.php");
         }
     }//Fin de logueo
     
@@ -49,7 +49,7 @@ class SessionBusiness{
             unset($_SESSION["user"]);
             unset($_SESSION["id"]);
             unset($_SESSION["language"]);
-            header("Location: ./session");
+            header("Location: ../../views/cliente/session.php");
     }//Fin de logueo
     
     

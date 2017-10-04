@@ -1,7 +1,7 @@
 <?php
 
-include_once './domain/TextPage.php';
-include_once './data/Connection.php';
+include_once '../../domain/TextPage.php';
+include_once '../../data/Connection.php';
 
 class TextPageData {
     

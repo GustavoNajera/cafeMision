@@ -1,10 +1,14 @@
 <?php
-include_once './business/GalleryBusiness.php';
-include_once './domain/Gallery.php';
+include_once '../GalleryBusiness.php';
+include_once '../../domain/Gallery.php';
+
+$action = (isset($_GET["action"]))? $_GET["action"] : "";
+
 $galleryBusiness = new GalleryBusiness();
 //Se obtiene la ruta de las imágenes
-$pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+$pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
 $pathGallery = $pathTem["imgGallery"];
+
 switch ($action) {
     
     /*
@@ -27,7 +31,7 @@ switch ($action) {
         $galleryTem = new Gallery($_POST["idgallery"], $image, $_POST["descriptionEs"], $_POST["descriptionIn"]);
         
         $galleryBusiness->updateGalleryBusiness($galleryTem);
-        header("Location: ./adminGallery");
+        header("Location: ../../views/admin/adminGallery.php");
         break;
     
     /*
@@ -50,7 +54,7 @@ switch ($action) {
         $galleryTem = new Gallery(0, $image, $_POST["descriptionEs"], $_POST["descriptionIn"]);
         
         $galleryBusiness->insertGalleryBusiness($galleryTem);
-        header("Location: ./adminGallery");
+        header("Location: ../../views/admin/adminGallery.php");
         break;
         
     /*
@@ -59,12 +63,12 @@ switch ($action) {
     case "delete":
         $galleryBusiness->deleteGalleryBusiness($_GET["idgallery"]);
         unlink($pathGallery . $_GET["image"]);//Eliminar imagen original
-        header("Location: ./adminGallery");
+        header("Location: ../../views/admin/adminGallery.php");
         break;
         
     /*
      * En caso de que no se defina una acción se vuelve a la vista sin hacer ninguna acción 
      */
     default:
-       header("Location: ./adminGallery");
+       header("Location: ../../views/admin/adminGallery.php");
 }

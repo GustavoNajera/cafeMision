@@ -1,7 +1,7 @@
 <?php
 
-include_once './domain/Organization.php';
-include_once './data/Connection.php';
+include_once '../../domain/Organization.php';
+include_once '../../data/Connection.php';
 
 class OrganizationData {
     

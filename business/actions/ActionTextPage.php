@@ -1,7 +1,11 @@
 <?php
-include_once './business/TextPageBusiness.php';
-include_once './domain/TextPage.php';
+include_once '../../business/TextPageBusiness.php';
+include_once '../../domain/TextPage.php';
 $textPageBusiness = new TextPageBusiness();
+
+//Datos recibidos
+$action = (isset($_GET["action"]))? $_GET["action"] : "";
+$filtrado = (isset($_GET["filtrado"]))? $_GET["filtrado"] : "";
 
 switch ($action) {
     
@@ -13,7 +17,7 @@ switch ($action) {
                 $_POST["page"], $_POST["text"]);
         
         $textPageBusiness->updateTextPageBusiness($textPageTem);
-        header("Location: ./adminTextPage?filtrado=".$filtrado);
+        header("Location: ../../views/admin/adminTextPage.php?filtrado=".$filtrado);
         break;
         
     /*
@@ -21,5 +25,5 @@ switch ($action) {
      */
     
     default:
-       header("Location: ./adminProduct");
+       header("Location: ../../views/admin/adminProduct");
 }

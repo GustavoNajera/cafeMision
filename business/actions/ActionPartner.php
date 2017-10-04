@@ -1,7 +1,9 @@
 <?php
-include_once './business/PartnerBusiness.php';
-include_once './domain/Partner.php';
+include_once '../../business/PartnerBusiness.php';
+include_once '../../domain/Partner.php';
 $partnerBusiness =  new PartnerBusiness();
+
+$action = (isset($_GET["action"]))? $_GET["action"] : "";
 
 switch ($action) {
     
@@ -11,7 +13,7 @@ switch ($action) {
     case "update":
         $partner = new Partner($_POST["idpartner"], $_POST["link"], $_POST["name"]);        
         $partnerBusiness->updatePartnerBusiness($partner);
-        header("Location: ./adminPartner");
+        header("Location: ../../views/admin/adminPartner.php");
         break;
     
     /*
@@ -20,7 +22,7 @@ switch ($action) {
     case "insert":
         $partner = new Partner(0, $_POST["link"], $_POST["name"]);        
         $partnerBusiness->insertPartnerBusiness($partner);
-        header("Location: ./adminPartner");
+        header("Location: ../../views/admin/adminPartner.php");
         break;
     
     /*
@@ -28,7 +30,7 @@ switch ($action) {
      */
     case "delete":
         $partnerBusiness->deletePartnerBusiness($_GET["idpartner"]);
-        header("Location: ./adminPartner");
+        header("Location: ../../views/admin/adminPartner.php");
         break;
     
     
@@ -37,5 +39,5 @@ switch ($action) {
      */
     
     default:
-       header("Location: ./adminPartner");
+       header("Location: ../../views/admin/adminPartner.php");
 }

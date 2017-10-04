@@ -1,6 +1,6 @@
 <?php
 
-include_once './data/ProcessData.php';
+include_once '../../data/ProcessData.php';
 
 class ProcessBusiness extends ProcessData{
     

@@ -1,11 +1,11 @@
 <?php
-include_once './business/ProductBusiness.php';
-include_once './domain/Product.php';
+include_once '../../business/ProductBusiness.php';
+include_once '../../domain/Product.php';
 $productBusiness = new ProductBusiness();
 //Se obtiene la ruta de las imágenes
-$pathTem = json_decode(file_get_contents("./config.json"),true)["IMG"];
+$pathTem = json_decode(file_get_contents("../../config.json"),true)["IMG"];
 $pathProduct = $pathTem["imgProduct"];
-
+$action = (isset($_GET["action"]))? $_GET["action"] : "";
 switch ($action) {
     
     /*
@@ -28,7 +28,7 @@ switch ($action) {
                 $image, $_POST["namees"], $_POST["namein"]);
         
         $productBusiness->updateProductBusiness($productTem);
-        header("Location: ./adminProduct");
+        header("Location: ../../views/admin/adminProduct.php");
         break;
         
         
@@ -51,7 +51,7 @@ switch ($action) {
                 $image, $_POST["namees"], $_POST["namein"]);
         
         $productBusiness->insertProductBusiness($productTem);
-        header("Location: ./adminProduct");
+        header("Location: ../../views/admin/adminProduct.php");
         break;
         
          /*
@@ -60,7 +60,7 @@ switch ($action) {
     case "delete":
         $productBusiness->deleteProductBusiness($_GET["idproduct"]);
         unlink($pathProduct . $_GET["image"]);//Eliminar imagen original
-        header("Location: ./adminProduct");
+        header("Location: ../../views/admin/adminProduct.php");
         break;
         
             
@@ -69,5 +69,5 @@ switch ($action) {
      */
     
     default:
-       header("Location: ./adminProduct");
+       header("Location: ../../views/admin/adminProduct.php");
 }

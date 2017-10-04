@@ -1,6 +1,6 @@
 <?php
 
-include_once './data/PartnerData.php';
+include_once '../../data/PartnerData.php';
 
 class PartnerBusiness extends PartnerData{
     

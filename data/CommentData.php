@@ -1,8 +1,8 @@
 <?php
 
-include_once './domain/Comment.php';
-include_once './data/UserData.php';
-include_once './data/Connection.php';
+include_once '../../domain/Comment.php';
+include_once '../../data/UserData.php';
+include_once '../../data/Connection.php';
 
 class CommentData {
     
