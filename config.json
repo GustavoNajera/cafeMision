@@ -3,7 +3,7 @@
         "server" : "localhost",
         "user" : "root",
         "password" : "",
-        "db" : "cafemision"
+        "db" : "cafemision2"
     },
     "IMG": {
         "imgHome" : "../../public/images/",

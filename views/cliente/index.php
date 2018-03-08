@@ -46,7 +46,7 @@
                 <div class="">
                   <div class="cell-sm-10 cell-md-9 cell-lg-7">
                     <h1><?=$text["TituloPrincipal"]?></h1>
-                    <p class="large"><?=$text["DescripcionPrincipal"]?></p><a href="./about.php" class="btn btn-style-1 btn-primary"><?=$text["leerMas"]?></a>
+                    <p class="large"><?=$organization->history?></p><a href="./about.php" class="btn btn-style-1 btn-primary"><?=$text["leerMas"]?></a>
                   </div>
                 </div>
               </div>
